@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './contact.css';
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_ypojlsa', 
+        'template_bitsnzm', 
+        form.current, {
+          publicKey: 'l09-VucuYLcga8eWb',
+      })
+      e.target.reset()
+    };
+
   return (
     <section className='contact section' id='contact'>
       <h2 className='section__title'>Get in touch</h2>
@@ -36,7 +52,7 @@ const Contact = () => {
                     </a>
                 </div>
 
-                {/* <div className='contact__card'>
+                <div className='contact__card'>
                     <i className='bx bxl-messenger contact__card-icon'></i>
 
                     <h3 className='contact__card-title'>Messenger</h3>
@@ -46,7 +62,7 @@ const Contact = () => {
                         Write me
                         <i className='bx bx-right-arrow-alt contact__button-icon'></i>
                     </a>
-                </div> */}
+                </div>
 
             </div>
         </div>
@@ -54,7 +70,7 @@ const Contact = () => {
         <div className='contact__content'>
             <h3 className='contact__title'>Let's work together</h3>
 
-            <form className='contact__form'>
+            <form ref={form} onSubmit={sendEmail} className='contact__form'>
                 <div className='contact__form-div'>
                     <label className='contact__form-tag'>Name</label>
                     <input type='text' name='name' className='contact__form-input' placeholder='Insert Your Name'/>
