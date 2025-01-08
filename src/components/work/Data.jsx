@@ -8,47 +8,99 @@ export const projectsData = [
     {
       id: 1,
       image: Work1,
-      title: "Web design",
-      category: "web",
+      title: "FinBERT & LSTM : Stock Prediction",
+      link: {
+        github: "Github",
+      },
+      category: "AI",
     },
     {
       id: 2,
       image: Work2,
-      title: "App movil",
-      category: "app",
+      title: "Jobs Site : [React site]",
+      link: {
+        link: "",
+        github: "Github",      
+      },
+      category: "Web",
     },
     {
       id: 3,
       image: Work3,
-      title: "Brand design",
-      category: "design",
+      title: "Truck on Wheels : [Android]",
+      link: {
+        link: "",
+        github: "Github",      
+      },
+      category: "Mobile",
     },
     {
       id: 4,
       image: Work4,
-      title: "App movil",
-      category: "app",
+      title: "Banking Service",
+      link: {
+        link: "",
+        github: "Github",      
+      },
+      category: "Backend",
     },
     {
       id: 5,
       image: Work5,
-      title: "Web design",
-      category: "web",
+      title: "Invoicing App",
+      link: {
+        link: "",
+        github: "Github",      
+      },
+      category: "Web",
+    },
+    {
+      id: 6,
+      image: Work5,
+      title: "Multi-Threaded HTTP Server",
+      link: {
+        link: "",
+        github: "Github",      
+      },
+      category: "Backend",
+    },
+    {
+      id: 7,
+      image: Work5,
+      title: "Personal Portfolio",
+      link: {
+        link: "",
+        github: "Github",      
+      },
+      category: "Web",
+    },
+    {
+      id: 8,
+      image: Work5,
+      title: "Url Shortener",
+      link: {
+        link: "",
+        github: "Github",      
+      },
+      category: "Web",
     },
   ];
 
   export const  projectNav = [
     {
-        name : 'all',
+        name : 'All',
     },
     {
-        name: 'web',
+        name: 'AI'
     },
     {
-        name: 'app'
+        name: 'Web',
     },
     {
-        name: 'design'
+        name: 'Backend'
+    },
+    {
+        name: 'Mobile'
     },
   ];
   

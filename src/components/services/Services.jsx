@@ -34,35 +34,35 @@ const Services = () => {
 
                         <h3 className='services__modal-title'>Web Development</h3>
                         <p className='services__modal-description'>
-                        Service with more than 3 years of experience.Providing quality work to clients and companies.
+                        Professional web solutions with 1+ years of expertise delivering impactful results for businesses worldwide.
                         </p>
 
                         <ul className='services__modal-services grid'>
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    I develop the user interface
+                                Full-Stack Development Building responsive websites and applications optimized for all devices
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    Webpage development
+                                Front-End Excellence Creating intuitive interfaces with clean code for seamless user experiences
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    I position your company brand
+                                Brand Enhancement Strengthening your digital presence through strategic web solutions
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    Design and mockups of products for companies
+                                UI/UX Design Transforming ideas into visually striking, user-friendly designs
                                 </p>
                             </li>
                         </ul>
@@ -87,37 +87,37 @@ const Services = () => {
 
                         </i>
 
-                        <h3 className='services__modal-title'>Web Development</h3>
+                        <h3 className='services__modal-title'>Mobile Development</h3>
                         <p className='services__modal-description'>
-                        Service with more than 3 years of experience.Providing quality work to clients and companies.
+                        Innovative mobile solutions with 2+ years of experience crafting high-performance applications.
                         </p>
 
                         <ul className='services__modal-services grid'>
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    I develop the user interface
+                                Native Development Building robust iOS and Android apps with platform-specific features
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    Webpage development
+                                Cross-Platform Solutions Developing efficient apps that work seamlessly across multiple devices
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    I position your company brand
+                                App Optimization Enhancing performance and user experience through efficient coding
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    Design and mockups of products for companies
+                                UI/UX Implementation Creating engaging mobile interfaces with intuitive navigation
                                 </p>
                             </li>
                         </ul>
@@ -128,8 +128,8 @@ const Services = () => {
 
         <div className='services__content'>
             <div>
-                <i className='uil uil-edit services__icon'></i>
-                <h3 className='services__title'>API <br/> Design</h3>
+                <i className='uil uil-circuit services__icon'></i>
+                <h3 className='services__title'>AI <br/> Solutions</h3>
 
                 <span className='services__button' onClick={() => toggleTab(3)}>
                     View More
@@ -142,37 +142,37 @@ const Services = () => {
 
                         </i>
 
-                        <h3 className='services__modal-title'>API Design</h3>
+                        <h3 className='services__modal-title'>Artificial Intelligence Solutions</h3>
                         <p className='services__modal-description'>
-                        Service with more than 3 years of experience.Providing quality work to clients and companies.
+                        Custom artificial intelligence solutions leveraging cutting-edge technology to transform your business.
                         </p>
 
                         <ul className='services__modal-services grid'>
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    I develop the user interface
+                                Smart Features Building AI capabilities for enhanced user experiences
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    Webpage development
+                                Automation Solutions Developing AI-powered automation for improved efficiency
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    I position your company brand
+                                AI Integration Implementing machine learning models and AI tools into existing systems
                                 </p>
                             </li>
 
                             <li className='services__modal-service'>
                                 <i className='uil uil-check-circle services__modal-icon'></i>
                                 <p className='services__modal-info'>
-                                    Design and mockups of products for companies
+                                Data Analytics Creating intelligent systems for data processing and insights
                                 </p>
                             </li>
                         </ul>
