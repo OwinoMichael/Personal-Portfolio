@@ -1,0 +1,36 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Install npm and dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y npm
+          npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Upload build to server
+        run: |
+          scp -r ./build/* root@143.198.45.24:/var/www/html
+
+      - name: Restart Nginx
+        run: |
+          ssh root@143.198.45.24 "sudo systemctl restart nginx"
