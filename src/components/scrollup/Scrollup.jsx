@@ -9,9 +9,13 @@ const Scrollup = () => {
         else scrollUp.classList.remove("show-scroll")
     });
   return (
-    <a href='#' className='scrollup'>
-        <i className='uil uil-arrow-up scrollup__icon'></i>
-    </a>
+    <button
+      className="scrollup"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Scroll to top"
+    >
+      <i className="uil uil-arrow-up scrollup__icon"></i>
+    </button>
   )
 }
 

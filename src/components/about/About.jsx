@@ -27,7 +27,7 @@ const About = () => {
             </p>
             
 
-            <a href="https://drive.google.com/file/d/1FjkTEUAPrN7jBjpprvI_X3egGdEDd-t5/view?usp=drive_link" target='_blank' className='button button--flex' >
+            <a href="https://drive.google.com/file/d/1FjkTEUAPrN7jBjpprvI_X3egGdEDd-t5/view?usp=drive_link" target='_blank' className='button button--flex' rel="noreferrer noopener">
                 View CV
 
                 <svg
