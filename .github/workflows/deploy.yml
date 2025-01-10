@@ -3,32 +3,41 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - main  
+      - main  # Trigger deployment when changes are pushed to the main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+    # Checkout your repository
     - name: Checkout code
       uses: actions/checkout@v2
 
+    # Clean up old node_modules and package-lock.json, then install dependencies
+    - name: Clean up and install dependencies
+      run: |
+        rm -rf node_modules
+        rm -f package-lock.json
+        npm install
+
+    # Set up SSH key and add the server SSH key to known_hosts
     - name: Set up SSH key
       run: |
         mkdir -p ~/.ssh
         ssh-keyscan -H 143.198.45.24 >> ~/.ssh/known_hosts
 
+    # Add your private key here for SSH authentication
     - name: Add SSH private key
       run: |
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
 
+    # Build the project
     - name: Build the project
       run: npm run build
 
+    # Deploy to server using SCP
     - name: Deploy to Server
       run: |
         scp -r ./build/* root@143.198.45.24:/var/www/html
-      env:
-        SSH_AUTH_SOCK: /tmp/ssh-a7qqMy7VMM7h/agent.1878
-        SSH_AGENT_PID: 1879
