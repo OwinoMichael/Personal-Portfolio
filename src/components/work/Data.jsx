@@ -10,7 +10,7 @@ export const projectsData = [
       image: Work1,
       title: "FinBERT & LSTM : Stock Prediction",
       link: {
-        github: "Github",
+        github: "https://github.com/OwinoMichael/FinBERT-Sentiment-Analysis-and-MTS-Temp-Att.-LSTM-",
       },
       category: "AI",
     },
@@ -19,8 +19,8 @@ export const projectsData = [
       image: Work2,
       title: "Jobs Site : [React site]",
       link: {
-        link: "",
-        github: "Github",      
+        link: "http://www.google.com",
+        github: "https://github.com/OwinoMichael/HireHive-Job-Posting-App-react-18",      
       },
       category: "Web",
     },
@@ -29,8 +29,7 @@ export const projectsData = [
       image: Work3,
       title: "Truck on Wheels : [Android]",
       link: {
-        link: "",
-        github: "Github",      
+        github: "https://github.com/OwinoMichael/Truck-On-Wheels-Android-Java",      
       },
       category: "Mobile",
     },
@@ -39,8 +38,7 @@ export const projectsData = [
       image: Work4,
       title: "Banking Service",
       link: {
-        link: "",
-        github: "Github",      
+        github: "https://github.com/OwinoMichael/Banking-System-Backend-SpringBoot",      
       },
       category: "Backend",
     },
@@ -49,8 +47,8 @@ export const projectsData = [
       image: Work5,
       title: "Invoicing App",
       link: {
-        link: "",
-        github: "Github",      
+        link: "http://www.google.com",
+        github: "https://github.com/OwinoMichael/Laravel-Vue-JS-Invoicing-App",      
       },
       category: "Web",
     },
@@ -59,8 +57,7 @@ export const projectsData = [
       image: Work5,
       title: "Multi-Threaded HTTP Server",
       link: {
-        link: "",
-        github: "Github",      
+        github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java",      
       },
       category: "Backend",
     },
@@ -69,8 +66,8 @@ export const projectsData = [
       image: Work5,
       title: "Personal Portfolio",
       link: {
-        link: "",
-        github: "Github",      
+        link: "http://www.owinomike.me",
+        github: "https://github.com/OwinoMichael/Personal-Portfolio",      
       },
       category: "Web",
     },
@@ -79,8 +76,8 @@ export const projectsData = [
       image: Work5,
       title: "Url Shortener",
       link: {
-        link: "",
-        github: "Github",      
+        link: "http://www.google.com",
+        github: "https://github.com/OwinoMichael/url-shortener-petite-link",      
       },
       category: "Web",
     },
