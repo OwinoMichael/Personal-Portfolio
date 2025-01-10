@@ -45,6 +45,14 @@
     margin-bottom: var(--mb-05);
 }
 
+.work__links {
+    display: flex; /* Aligns items in a row */
+    gap: 10px; /* Adds space between buttons */
+    justify-content: flex-start; /* Aligns items to the left */
+    margin-top: 10px; /* Adds some space above the links */
+  }
+  
+
 .work__button {
     color: var(--text-color);
     font-size: var(--small-font-size);
