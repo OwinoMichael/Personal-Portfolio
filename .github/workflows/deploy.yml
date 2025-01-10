@@ -14,6 +14,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    # Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'  # Specify a stable Node.js version
+
     # Clean up and install dependencies
     - name: Clean up and install dependencies
       run: |
@@ -21,20 +27,21 @@ jobs:
         rm -f package-lock.json
         npm install
 
-    # Set up SSH key and add the server SSH key to known_hosts
+    # Set up SSH key
     - name: Set up SSH key
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Add this line
       run: |
         mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519  
-        chmod 600 ~/.ssh/id_ed25519 
-        ssh-keyscan -H 143.198.45.24 >> ~/.ssh/known_hosts  
-
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        ssh-keyscan -H 143.198.45.24 >> ~/.ssh/known_hosts
 
     # Add SSH key to ssh-agent
     - name: Add SSH key to agent
       run: |
         eval $(ssh-agent -s)
-        ssh-add ~/.ssh/id_ed25519  
+        ssh-add ~/.ssh/id_ed25519
 
     # Build the project
     - name: Build the project
@@ -43,4 +50,4 @@ jobs:
     # Deploy to server using SCP
     - name: Deploy to Server
       run: |
-        scp -r ./build/* root@143.198.45.24:/var/www/html
+        scp -r -o StrictHostKeyChecking=no ./build/* root@143.198.45.24:/var/www/html
