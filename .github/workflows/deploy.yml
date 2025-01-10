@@ -18,9 +18,12 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Install npm dependencies
+      - name: Clean up previous node_modules and package-lock.json (if they exist)
         run: |
-          npm install
+          rm -rf node_modules package-lock.json
+
+      - name: Install npm dependencies
+        run: npm install
 
       - name: Build the project
         run: npm run build
@@ -28,7 +31,7 @@ jobs:
       - name: Upload build to server
         run: |
           scp -r ./build/* root@143.198.45.24:/var/www/html
-      
+         
       - name: Restart Nginx
         run: |
           ssh -o StrictHostKeyChecking=no root@143.198.45.24 "sudo systemctl restart nginx"
