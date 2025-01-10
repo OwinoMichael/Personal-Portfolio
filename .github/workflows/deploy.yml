@@ -3,18 +3,18 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - main  # Trigger deployment when changes are pushed to the main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout your repository
+    # Checkout the code
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Clean up old node_modules and package-lock.json, then install dependencies
+    # Clean up and install dependencies
     - name: Clean up and install dependencies
       run: |
         rm -rf node_modules
@@ -25,13 +25,15 @@ jobs:
     - name: Set up SSH key
       run: |
         mkdir -p ~/.ssh
-        ssh-keyscan -H 143.198.45.24 >> ~/.ssh/known_hosts
+        echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa  # Ensure the key format is correct
+        chmod 600 ~/.ssh/id_rsa  # Set correct permissions
+        ssh-keyscan -H 143.198.45.24 >> ~/.ssh/known_hosts  # Add server's public key to known_hosts
 
-    # Add your private key here for SSH authentication
-    - name: Add SSH private key
+    # Add SSH key to ssh-agent
+    - name: Add SSH key to agent
       run: |
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        eval $(ssh-agent -s)
+        ssh-add ~/.ssh/id_rsa  # Add the private key to the SSH agent
 
     # Build the project
     - name: Build the project
