@@ -1,13 +1,16 @@
-import Work1 from "../../assets/work1.jpg"
-import Work2 from "../../assets/work2.jpg"
-import Work3 from "../../assets/work3.jpg"
-import Work4 from "../../assets/work4.jpg"
 import Work5 from "../../assets/work5.jpg"
+import FinBert from "../../assets/Finbert.jpg"
+import Tow from "../../assets/Tow.png"
+import Bank from "../../assets/Bank.jpg"
+import Server from "../../assets/Server.jpg"
+import Portfolio from "../../assets/Portfolio.png"
+import ReactJob from "../../assets/ReactJob.png"
+import LinkShortener from "../../assets/LinkShortener.png"
 
 export const projectsData = [
     {
       id: 1,
-      image: Work1,
+      image: FinBert,
       title: "FinBERT & LSTM : Stock Prediction",
       link: {
         github: "https://github.com/OwinoMichael/FinBERT-Sentiment-Analysis-and-MTS-Temp-Att.-LSTM-",
@@ -16,7 +19,7 @@ export const projectsData = [
     },
     {
       id: 2,
-      image: Work2,
+      image: ReactJob,
       title: "Jobs Site : [React site]",
       link: {
         link: "http://www.google.com",
@@ -26,7 +29,7 @@ export const projectsData = [
     },
     {
       id: 3,
-      image: Work3,
+      image: Tow,
       title: "Truck on Wheels : [Android]",
       link: {
         github: "https://github.com/OwinoMichael/Truck-On-Wheels-Android-Java",      
@@ -35,8 +38,8 @@ export const projectsData = [
     },
     {
       id: 4,
-      image: Work4,
-      title: "Banking Service",
+      image: Bank,
+      title: "Financial Service API",
       link: {
         github: "https://github.com/OwinoMichael/Banking-System-Backend-SpringBoot",      
       },
@@ -54,7 +57,7 @@ export const projectsData = [
     },
     {
       id: 6,
-      image: Work5,
+      image: Server,
       title: "Multi-Threaded HTTP Server",
       link: {
         github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java",      
@@ -63,7 +66,7 @@ export const projectsData = [
     },
     {
       id: 7,
-      image: Work5,
+      image: Portfolio,
       title: "Personal Portfolio",
       link: {
         link: "http://www.owinomike.me",
@@ -73,7 +76,7 @@ export const projectsData = [
     },
     {
       id: 8,
-      image: Work5,
+      image: LinkShortener,
       title: "Url Shortener",
       link: {
         link: "http://www.google.com",
