@@ -88,7 +88,7 @@ const Qualification = () => {
                 ? 'qualification__content qualification__content-active' 
                 : 'qualification__content'}>
 
-<div className='qualification__data'>
+                <div className='qualification__data'>
                     <div></div>
 
                     <div>
@@ -97,7 +97,7 @@ const Qualification = () => {
                     </div>
 
                     <div>
-                        <h3 className='qualification__title'>Business Software Analyst</h3>
+                        <h3 className='qualification__title'>Software Engineer & Analyst</h3>
                         <span className='qualification__subtitle'>Abno Softwares</span>
                         <div className='qualification__calender'>
                             <i className='uil uil-calender-alt'></i> 2023 - 2024
