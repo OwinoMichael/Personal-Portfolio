@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.7ebda16d.css",
-    "main.js": "/static/js/main.f59d9056.js",
+    "main.css": "/static/css/main.c7df9bf5.css",
+    "main.js": "/static/js/main.686a66b6.js",
     "static/js/453.a5ed886c.chunk.js": "/static/js/453.a5ed886c.chunk.js",
+    "static/media/Server.jpg": "/static/media/Server.f58435882c192bd800f9.jpg",
+    "static/media/Finbert.jpg": "/static/media/Finbert.1503602bba0006dc9a36.jpg",
+    "static/media/Bank.jpg": "/static/media/Bank.6c0f0ca27ba88bcd17c4.jpg",
+    "static/media/Portfolio.png": "/static/media/Portfolio.107e360d893c5ccc6339.png",
+    "static/media/Tow.png": "/static/media/Tow.8a940cee56cd41f1f410.png",
     "static/media/IMG_9485.JPG": "/static/media/IMG_9485.cbc86f9dfb7fa070c549.JPG",
+    "static/media/LinkShortener.png": "/static/media/LinkShortener.868212d7bbc399625b4d.png",
+    "static/media/ReactJob.png": "/static/media/ReactJob.a0f0f5ab74d09657999f.png",
     "static/media/SPHERE-FEZ.ttf": "/static/media/SPHERE-FEZ.105166040c9b0ef79770.ttf",
-    "static/media/work2.jpg": "/static/media/work2.e52a0c2981a6c11ba468.jpg",
-    "static/media/work4.jpg": "/static/media/work4.aee985961b648f4df1f2.jpg",
     "static/media/work5.jpg": "/static/media/work5.094ec4a2224db8908873.jpg",
-    "static/media/work1.jpg": "/static/media/work1.321b4ae3bf404acdfdc6.jpg",
-    "static/media/work3.jpg": "/static/media/work3.135e9065694bc13dc31d.jpg",
     "index.html": "/index.html",
-    "main.7ebda16d.css.map": "/static/css/main.7ebda16d.css.map",
-    "main.f59d9056.js.map": "/static/js/main.f59d9056.js.map",
+    "main.c7df9bf5.css.map": "/static/css/main.c7df9bf5.css.map",
+    "main.686a66b6.js.map": "/static/js/main.686a66b6.js.map",
     "453.a5ed886c.chunk.js.map": "/static/js/453.a5ed886c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ebda16d.css",
-    "static/js/main.f59d9056.js"
+    "static/css/main.c7df9bf5.css",
+    "static/js/main.686a66b6.js"
   ]
 }
