@@ -17,6 +17,18 @@ const WorkItems = ({ item }) => {
             Demo <i className="bx bx-right-arrow-alt work__button-icon"></i>
           </a>
         )}
+
+        {item.link.kaggle && (
+          <a href={item.link.kaggle} className="work__button">
+            Kaggle <i className="bx bx-right-arrow-alt work__button-icon"></i>
+          </a>
+        )}
+
+        {item.link.site && (
+          <a href={item.link.site} className="work__button">
+            Site <i className="bx bx-right-arrow-alt work__button-icon"></i>
+          </a>
+        )}
       </div>
     </div>
   );

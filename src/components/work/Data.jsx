@@ -6,19 +6,52 @@ import Server from "../../assets/Server.jpg"
 import Portfolio from "../../assets/Portfolio.png"
 import ReactJob from "../../assets/ReactJob.png"
 import LinkShortener from "../../assets/LinkShortener.png"
+import Legal from "../../assets/Legal.jpg"
+import DQL from "../../assets/DQL.jpg"
+import Nine from "../../assets/911.jpg"
 
 export const projectsData = [
     {
       id: 1,
-      image: FinBert,
-      title: "FinBERT & LSTM : Stock Prediction",
+      image: Legal,
+      title: "Legal Mind - AI MCP System",
       link: {
-        github: "https://github.com/OwinoMichael/FinBERT-Sentiment-Analysis-and-MTS-Temp-Att.-LSTM-",
+        github: "https://github.com/OwinoMichael/AI-Legal-Assistance",
       },
       category: "AI",
     },
     {
       id: 2,
+      image: DQL,
+      title: "Deep Q Learning for Stock Trading",
+      link: {
+        github: "https://github.com/OwinoMichael/AI-Autonomous-Stock-Trader-DQL-Agent",
+        kaggle: "https://www.kaggle.com/code/owinomikey/exploring-deep-q-learning-for-stock-trading-portfo"
+      },
+      category: "AI",
+    },
+    {
+      id: 3,
+      image: Nine,
+      title: "911 Calls Visualization",
+      link: {
+        github: "https://github.com/OwinoMichael/AI-911-Calls-Platform",
+        site: "http://owinomike.me:8081/login"
+      },
+      category: "AI",
+    },
+    {
+      id: 4,
+      image: FinBert,
+      title: "FinBERT & LSTM : Stock Prediction",
+      link: {
+        github: "https://github.com/OwinoMichael/FinBERT-Sentiment-Analysis-and-MTS-Temp-Att.-LSTM-",
+        kaggle: "https://www.kaggle.com/code/owinomikey/exploring-investors-emotions-for-financial-sentim/edit"
+      },
+      category: "AI",
+    },
+    {
+      id: 5,
       image: ReactJob,
       title: "Jobs Site : [React site]",
       link: {
@@ -27,7 +60,7 @@ export const projectsData = [
       category: "Web",
     },
     {
-      id: 3,
+      id: 6,
       image: Tow,
       title: "Truck on Wheels : [Android]",
       link: {
@@ -37,7 +70,7 @@ export const projectsData = [
       category: "Mobile",
     },
     {
-      id: 4,
+      id: 7,
       image: Bank,
       title: "Financial Service API",
       link: {
@@ -46,7 +79,7 @@ export const projectsData = [
       category: "Backend",
     },
     {
-      id: 5,
+      id: 8,
       image: Work5,
       title: "Invoicing App",
       link: {
@@ -56,7 +89,7 @@ export const projectsData = [
       category: "Web",
     },
     {
-      id: 6,
+      id: 9,
       image: Server,
       title: "Multi-Threaded HTTP Server",
       link: {
@@ -65,7 +98,7 @@ export const projectsData = [
       category: "Backend",
     },
     {
-      id: 7,
+      id: 10,
       image: Portfolio,
       title: "Personal Portfolio",
       link: {
@@ -75,7 +108,7 @@ export const projectsData = [
       category: "Web",
     },
     {
-      id: 8,
+      id: 11,
       image: LinkShortener,
       title: "Url Shortener",
       link: {
