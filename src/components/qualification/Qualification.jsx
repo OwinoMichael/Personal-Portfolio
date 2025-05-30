@@ -89,6 +89,21 @@ const Qualification = () => {
                 : 'qualification__content'}>
 
                 <div className='qualification__data'>
+                    <div>
+                        <h3 className='qualification__title'>Software Engineer Intern</h3>
+                        <span className='qualification__subtitle'>ABNO Softwares International</span>
+                        <div className='qualification__calender'>
+                            <i className='uil uil-calender-alt'></i> 2023
+                        </div>
+                    </div>
+
+                    <div>
+                        <span className='qualification__rounder'></span>
+                        <span className='qualification__line'></span>
+                    </div>
+                </div>
+
+                <div className='qualification__data'>
                     <div></div>
 
                     <div>
@@ -97,7 +112,7 @@ const Qualification = () => {
                     </div>
 
                     <div>
-                        <h3 className='qualification__title'>Software Engineer & Analyst</h3>
+                        <h3 className='qualification__title'>Software Developer Intern</h3>
                         <span className='qualification__subtitle'>Abno Softwares</span>
                         <div className='qualification__calender'>
                             <i className='uil uil-calender-alt'></i> 2023 - 2024
@@ -109,7 +124,7 @@ const Qualification = () => {
                 
                 <div className='qualification__data'>
                     <div>
-                        <h3 className='qualification__title'>Sales, Customer Care & ICT Support</h3>
+                        <h3 className='qualification__title'>Software Developer Intern</h3>
                         <span className='qualification__subtitle'>Accorn Holdings Africa</span>
                         <div className='qualification__calender'>
                             <i className='uil uil-calender-alt'></i> 2023
