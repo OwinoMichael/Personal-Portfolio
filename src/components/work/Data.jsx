@@ -9,19 +9,31 @@ import LinkShortener from "../../assets/LinkShortener.png"
 import Legal from "../../assets/Legal.jpg"
 import DQL from "../../assets/DQL.jpg"
 import Nine from "../../assets/911.jpg"
+import Sonic from "../../assets/sonic.jpg"
 
 export const projectsData = [
     {
       id: 1,
-      image: Legal,
-      title: "Legal Mind - AI MCP System",
+      image: Sonic,
+      title: "Sonic Resonance",
       link: {
-        github: "https://github.com/OwinoMichael/AI-Legal-Assistance",
+        github: "https://github.com/OwinoMichael/Sonic-Resonance",
+        site: "https://owinomike.me/sonicres/"
       },
       category: "AI",
     },
     {
       id: 2,
+      image: Legal,
+      title: "Legal Mind - AI MCP System",
+      link: {
+        github: "https://github.com/OwinoMichael/AI-Legal-Assistance",
+        site: "https://owinomike.me/legallens/"
+      },
+      category: "AI",
+    },
+    {
+      id: 3,
       image: DQL,
       title: "Deep Q Learning for Stock Trading",
       link: {
@@ -31,7 +43,7 @@ export const projectsData = [
       category: "AI",
     },
     {
-      id: 3,
+      id: 4,
       image: Nine,
       title: "911 Calls Visualization",
       link: {
@@ -41,7 +53,7 @@ export const projectsData = [
       category: "AI",
     },
     {
-      id: 4,
+      id: 5,
       image: FinBert,
       title: "FinBERT & LSTM : Stock Prediction",
       link: {
@@ -51,7 +63,7 @@ export const projectsData = [
       category: "AI",
     },
     {
-      id: 5,
+      id: 6,
       image: ReactJob,
       title: "Jobs Site : [React site]",
       link: {
@@ -60,7 +72,7 @@ export const projectsData = [
       category: "Web",
     },
     {
-      id: 6,
+      id: 7,
       image: Tow,
       title: "Truck on Wheels : [Android]",
       link: {
@@ -70,7 +82,7 @@ export const projectsData = [
       category: "Mobile",
     },
     {
-      id: 7,
+      id: 8,
       image: Bank,
       title: "Financial Service API",
       link: {
@@ -79,7 +91,7 @@ export const projectsData = [
       category: "Backend",
     },
     {
-      id: 8,
+      id: 9,
       image: Work5,
       title: "Invoicing App",
       link: {
@@ -89,7 +101,7 @@ export const projectsData = [
       category: "Web",
     },
     {
-      id: 9,
+      id: 10,
       image: Server,
       title: "Multi-Threaded HTTP Server",
       link: {
@@ -98,7 +110,7 @@ export const projectsData = [
       category: "Backend",
     },
     {
-      id: 10,
+      id: 11,
       image: Portfolio,
       title: "Personal Portfolio",
       link: {
@@ -108,7 +120,7 @@ export const projectsData = [
       category: "Web",
     },
     {
-      id: 11,
+      id: 12,
       image: LinkShortener,
       title: "Url Shortener",
       link: {
