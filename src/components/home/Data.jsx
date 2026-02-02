@@ -57,7 +57,7 @@ const Data = () => {
 
       <h3 className='home__subtitle'>Software & ML Engineer</h3>
       <p className='home__description'>
-        I am a creative developer based in Waterloo, ON, Canada. I love to develop and make new online experiences for the people.
+        I am a creative developer based in The Greater Toronto Area, ON, Canada. I love to develop and make new online experiences for the people.
       </p>
 
       <a href='#contact' className='button button--flex'>
