@@ -27,19 +27,16 @@ jobs:
         ssh -T root@72.60.64.220 << 'EOF'
           set -e
 
-          mkdir -p /root/projects
-          cd /root/projects
-
-          if [ ! -d "Personal-Portfolio" ]; then
-            git clone git@github.com:OwinoMichael/Personal-Portfolio.git
-          fi
-
-          cd Personal-Portfolio
+          cd /root/projects/Personal-Portfolio
           git pull origin main
 
-          docker compose down
-          docker compose up -d --build
+          docker build -t portfolio .
+          docker stop portfolio || true
+          docker rm portfolio || true
+
+          docker run -d \
+            --name portfolio \
+            -p 80:80 \
+            --restart unless-stopped \
+            portfolio
         EOF
-
-
-        #Success
