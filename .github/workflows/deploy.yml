@@ -31,12 +31,15 @@ jobs:
           git pull origin main
 
           docker build -t portfolio .
-          docker stop portfolio || true
-          docker rm portfolio || true
+
+          # Stop and remove the EXISTING container that owns port 80
+          docker stop portfolio_container || true
+          docker rm portfolio_container || true
 
           docker run -d \
-            --name portfolio \
+            --name portfolio_container \
             -p 80:80 \
             --restart unless-stopped \
             portfolio
         EOF
+
