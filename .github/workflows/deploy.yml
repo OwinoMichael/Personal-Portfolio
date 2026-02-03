@@ -22,29 +22,24 @@ jobs:
         chmod 600 ~/.ssh/id_ed25519
         ssh-keyscan -H 72.60.64.220 >> ~/.ssh/known_hosts
 
-    - name: Deploy via SSH & Docker
+    - name: Deploy on server
       run: |
-        ssh root@72.60.64.220 << 'EOF'
+        ssh -T root@72.60.64.220 << 'EOF'
           set -e
 
-          cd /root/projects/portfolio
+          mkdir -p /root/projects
+          cd /root/projects
 
-          echo "Pulling latest code..."
+          if [ ! -d "Personal-Portfolio" ]; then
+            git clone git@github.com:OwinoMichael/Personal-Portfolio.git
+          fi
+
+          cd Personal-Portfolio
           git pull origin main
 
-          echo "Stopping existing container..."
-          docker stop portfolio || true
-          docker rm portfolio || true
-
-          echo "Building Docker image..."
-          docker build -t portfolio .
-
-          echo "Running new container..."
-          docker run -d \
-            --name portfolio \
-            -p 80:80 \
-            --restart unless-stopped \
-            portfolio
+          docker compose down
+          docker compose up -d --build
         EOF
 
-    #Success
+
+        #Success
