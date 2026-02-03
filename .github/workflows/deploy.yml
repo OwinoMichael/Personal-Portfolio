@@ -46,3 +46,5 @@ jobs:
             --restart unless-stopped \
             portfolio
         EOF
+
+    #Success
