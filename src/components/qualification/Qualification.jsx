@@ -91,7 +91,7 @@ const Qualification = () => {
                 <div className='qualification__data'>
                     <div>
                         <h3 className='qualification__title'>Software Engineer Intern</h3>
-                        <span className='qualification__subtitle'>ABNO Softwares International</span>
+                        <span className='qualification__subtitle'>Crossover Software Company - Toronto</span>
                         <div className='qualification__calender'>
                             <i className='uil uil-calender-alt'></i> 2023
                         </div>
