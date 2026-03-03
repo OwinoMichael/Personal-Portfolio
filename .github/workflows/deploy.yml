@@ -40,5 +40,5 @@ jobs:
             -p 3004:80 \
             --restart unless-stopped \
             portfolio
-          EOF
+        EOF
 
