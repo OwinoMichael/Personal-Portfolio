@@ -18,7 +18,7 @@ export const projectsData = [
       title: "Sonic Resonance",
       link: {
         github: "https://github.com/OwinoMichael/Sonic-Resonance",
-        site: "https://owinomike.me/sonicres/"
+        site: "https://mikeowino.cloud/sonicres/"
       },
       category: "AI",
     },
@@ -28,7 +28,7 @@ export const projectsData = [
       title: "Legal Mind - AI MCP System",
       link: {
         github: "https://github.com/OwinoMichael/AI-Legal-Assistance",
-        site: "https://owinomike.me/legallens/"
+        site: "https://mikeowino.cloud/legallens/"
       },
       category: "AI",
     },
@@ -114,7 +114,7 @@ export const projectsData = [
       image: Portfolio,
       title: "Personal Portfolio",
       link: {
-        link: "http://www.owinomike.me",
+        link: "https://mikeowino.cloud/",
              
       },
       category: "Web",
