@@ -37,8 +37,8 @@ jobs:
 
           docker run -d \
             --name portfolio_container \
-            -p 80:80 \
+            -p 3004:80 \
             --restart unless-stopped \
             portfolio
-        EOF
+          EOF
 
