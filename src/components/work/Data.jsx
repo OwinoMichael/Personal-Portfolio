@@ -12,140 +12,222 @@ import Nine from "../../assets/911.jpg"
 import Sonic from "../../assets/sonic.jpg"
 
 export const projectsData = [
-    {
-      id: 1,
-      image: Sonic,
-      title: "Sonic Resonance",
-      link: {
-        github: "https://github.com/OwinoMichael/Sonic-Resonance",
-        site: "https://mikeowino.cloud/sonicres/"
-      },
-      category: "AI",
+  {
+    id: 1,
+    image: Sonic,
+    title: "Sonic Resonance",
+    category: "AI",
+    tags: ["Spring Boot", "React TS", "FFmpeg", "PostgreSQL", "Redis"],
+    desc: "A full Shazam-style audio fingerprinting system with real-time decoding, spectrogram generation, and hash-based fingerprint matching across thousands of tracks.",
+    highlights: [
+      "Built with Spring Boot WebFlux, React TypeScript, and FFmpeg for real-time audio decoding",
+      "Implemented non-blocking I/O and parallelized audio processing to reduce recognition latency at scale",
+      "Designed spectrogram generation pipeline for robust audio fingerprint creation",
+      "PostgreSQL + Redis for optimized fingerprint storage and fast retrieval",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Sonic-Resonance",
+      site: "https://mikeowino.cloud/sonicres/",
     },
-    {
-      id: 2,
-      image: Legal,
-      title: "Legal Mind - AI MCP System",
-      link: {
-        github: "https://github.com/OwinoMichael/AI-Legal-Assistance",
-        site: "https://mikeowino.cloud/legallens/"
-      },
-      category: "AI",
+  },
+  {
+    id: 2,
+    image: Legal,
+    title: "Legal Mind — AI MCP System",
+    category: "AI",
+    tags: ["Java", "Spring Boot", "Python", "FastAPI", "React TS", "Legal-BERT"],
+    desc: "An AI-powered MCP server that automatically scans and analyzes legal documents, achieving 93% accuracy in identifying clauses, risks, and compliance warnings.",
+    highlights: [
+      "Developed MCP server using Java Spring Boot and Python FastAPI with a React TypeScript frontend",
+      "Integrated Legal-BERT LLM and ETL workflows for clause classification and risk detection",
+      "Reduced manual legal review time by 65% across 500+ documents using a RAG design",
+      "Achieved 95% test coverage with JUnit and Selenium automated testing",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/AI-Legal-Assistance",
+      site: "https://mikeowino.cloud/legallens/",
     },
-    {
-      id: 3,
-      image: DQL,
-      title: "Deep Q Learning for Stock Trading",
-      link: {
-        github: "https://github.com/OwinoMichael/AI-Autonomous-Stock-Trader-DQL-Agent",
-        kaggle: "https://www.kaggle.com/code/owinomikey/exploring-deep-q-learning-for-stock-trading-portfo"
-      },
-      category: "AI",
+  },
+  {
+    id: 3,
+    image: DQL,
+    title: "Deep Q-Learning Stock Trader",
+    category: "AI",
+    tags: ["Python", "Deep Q-Learning", "PyTorch", "Reinforcement Learning", "Kaggle"],
+    desc: "An autonomous stock trading agent built using Deep Q-Learning, trained to maximize portfolio returns through reinforcement learning on historical market data.",
+    highlights: [
+      "Implemented a DQL agent with experience replay and target network stabilization",
+      "Trained on historical stock data with custom reward shaping for portfolio optimization",
+      "Visualized agent behavior, Q-values, and portfolio growth over training episodes",
+      "Published full exploration notebook on Kaggle with reproducible results",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/AI-Autonomous-Stock-Trader-DQL-Agent",
+      kaggle: "https://www.kaggle.com/code/owinomikey/exploring-deep-q-learning-for-stock-trading-portfo",
     },
-    {
-      id: 4,
-      image: Nine,
-      title: "911 Calls Visualization",
-      link: {
-        github: "https://github.com/OwinoMichael/AI-911-Calls-Platform",
-        site: "http://owinomike.me:8081/login"
-      },
-      category: "AI",
+  },
+  {
+    id: 4,
+    image: Nine,
+    title: "911 Calls Visualization Platform",
+    category: "AI",
+    tags: ["Python", "Java", "Spring Boot", "React", "Data Viz"],
+    desc: "An interactive platform for visualizing and analyzing 911 emergency call data, surfacing patterns in call volume, type, and geography through rich dashboards.",
+    highlights: [
+      "Built full-stack platform with Spring Boot backend and React frontend",
+      "Processed and cleaned large 911 call datasets for accurate trend analysis",
+      "Implemented interactive charts and heatmaps for geographic call distribution",
+      "Deployed live dashboard accessible via authenticated web portal",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/AI-911-Calls-Platform",
+      site: "http://owinomike.me:8081/login",
     },
-    {
-      id: 5,
-      image: FinBert,
-      title: "FinBERT & LSTM : Stock Prediction",
-      link: {
-        github: "https://github.com/OwinoMichael/FinBERT-Sentiment-Analysis-and-MTS-Temp-Att.-LSTM-",
-        kaggle: "https://www.kaggle.com/code/owinomikey/exploring-investors-emotions-for-financial-sentim/edit"
-      },
-      category: "AI",
+  },
+  {
+    id: 5,
+    image: FinBert,
+    title: "FinBERT & LSTM Stock Prediction",
+    category: "AI",
+    tags: ["Python", "FinBERT", "LSTM", "NLP", "Kaggle", "PyTorch"],
+    desc: "A hybrid model combining FinBERT sentiment analysis on financial news with a multi-temporal attention LSTM for improved stock price prediction.",
+    highlights: [
+      "Fine-tuned FinBERT on financial news headlines for investor sentiment scoring",
+      "Built a multi-temporal attention LSTM to capture short and long-term price trends",
+      "Combined sentiment signals with price features to improve prediction accuracy",
+      "Full exploration and results published as a Kaggle notebook",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/FinBERT-Sentiment-Analysis-and-MTS-Temp-Att.-LSTM-",
+      kaggle: "https://www.kaggle.com/code/owinomikey/exploring-investors-emotions-for-financial-sentim/edit",
     },
-    {
-      id: 6,
-      image: ReactJob,
-      title: "Jobs Site : [React site]",
-      link: {
-        github: "https://github.com/OwinoMichael/HireHive-Job-Posting-App-react-18",      
-      },
-      category: "Web",
+  },
+  {
+    id: 6,
+    image: ReactJob,
+    title: "HireHive — Jobs Site",
+    category: "Web",
+    tags: ["React 18", "JavaScript", "REST API", "Tailwind CSS"],
+    desc: "A modern job posting and browsing web app built with React 18, allowing employers to post roles and candidates to search and filter listings.",
+    highlights: [
+      "Built with React 18 using hooks, context, and component-driven architecture",
+      "Implemented job filtering by role type, location, and salary range",
+      "Connected to a mock REST API for job CRUD operations",
+      "Responsive UI with clean card-based listing layout",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/HireHive-Job-Posting-App-react-18",
     },
-    {
-      id: 7,
-      image: Tow,
-      title: "Truck on Wheels : [Android]",
-      link: {
-        link: "https://drive.google.com/file/d/1RjBmwfeB0cTeYCNEFOAQkinEsKLUH9y-/view?usp=drive_link",
-        github: "https://github.com/OwinoMichael/Truck-On-Wheels-Android-Java",      
-      },
-      category: "Mobile",
+  },
+  {
+    id: 7,
+    image: Tow,
+    title: "Truck on Wheels — Android App",
+    category: "Mobile",
+    tags: ["Android", "Java", "Google Maps API", "Firebase"],
+    desc: "An Android application for truck logistics and on-demand towing services, connecting drivers with customers needing roadside assistance.",
+    highlights: [
+      "Built natively in Java for Android with Google Maps API integration",
+      "Real-time driver tracking and job dispatch flow for towing requests",
+      "Firebase backend for authentication, job storage, and push notifications",
+      "Packaged and distributed as an installable APK via Google Drive",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Truck-On-Wheels-Android-Java",
+      link: "https://drive.google.com/file/d/1RjBmwfeB0cTeYCNEFOAQkinEsKLUH9y-/view?usp=drive_link",
     },
-    {
-      id: 8,
-      image: Bank,
-      title: "Financial Service API",
-      link: {
-        github: "https://github.com/OwinoMichael/Banking-System-Backend-SpringBoot",      
-      },
-      category: "Backend",
+  },
+  {
+    id: 8,
+    image: Bank,
+    title: "Financial Service API",
+    category: "Backend",
+    tags: ["Java", "Spring Boot", "REST API", "MySQL", "JWT"],
+    desc: "A secure, scalable banking backend built with Spring Boot, supporting account management, transactions, and financial reporting via RESTful APIs.",
+    highlights: [
+      "Designed RESTful endpoints for account creation, transfers, and balance queries",
+      "Implemented JWT-based authentication and role-based access control",
+      "Optimized MySQL queries for high-throughput transaction processing",
+      "Built robust error handling and logging for financial audit trails",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Banking-System-Backend-SpringBoot",
     },
-    {
-      id: 9,
-      image: Work5,
-      title: "Invoicing App",
-      link: {
-        
-        github: "https://github.com/OwinoMichael/Laravel-Vue-JS-Invoicing-App",      
-      },
-      category: "Web",
+  },
+  {
+    id: 9,
+    image: Work5,
+    title: "Invoicing App",
+    category: "Web",
+    tags: ["Laravel", "Vue.js", "MySQL", "PHP", "REST API"],
+    desc: "A full-stack invoicing application built with Laravel and Vue.js, enabling businesses to create, manage, and track invoices and client payments.",
+    highlights: [
+      "Built RESTful API with Laravel for invoice and client management",
+      "Vue.js frontend with reactive invoice builder and PDF export",
+      "MySQL database with relational schema for clients, invoices, and line items",
+      "Authentication with Laravel Sanctum and role-based permissions",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Laravel-Vue-JS-Invoicing-App",
     },
-    {
-      id: 10,
-      image: Server,
-      title: "Multi-Threaded HTTP Server",
-      link: {
-        github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java",      
-      },
-      category: "Backend",
+  },
+  {
+    id: 10,
+    image: Server,
+    title: "Multi-Threaded HTTP Server",
+    category: "Backend",
+    tags: ["Java", "Multithreading", "HTTP", "Sockets", "Concurrency"],
+    desc: "A custom-built multi-threaded HTTP server in Java, handling concurrent client connections using thread pooling and raw socket programming.",
+    highlights: [
+      "Implemented HTTP/1.1 request parsing and response generation from scratch",
+      "Thread pool executor for managing concurrent client connections efficiently",
+      "Handled GET, POST, and static file serving with proper MIME types",
+      "Benchmarked against concurrent load to validate throughput and stability",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java",
     },
-    {
-      id: 11,
-      image: Portfolio,
-      title: "Personal Portfolio",
-      link: {
-        link: "https://mikeowino.cloud/",
-             
-      },
-      category: "Web",
+  },
+  {
+    id: 11,
+    image: Portfolio,
+    title: "Personal Portfolio",
+    category: "Web",
+    tags: ["React", "JavaScript", "CSS3", "Responsive Design"],
+    desc: "My personal developer portfolio showcasing projects, skills, and experience — built from scratch with React and deployed at mikeowino.cloud.",
+    highlights: [
+      "Designed and built fully responsive layout with smooth scroll and section animations",
+      "Dynamic project filtering and category-based navigation",
+      "Integrated contact form with EmailJS for direct message delivery",
+      "Deployed and hosted on custom domain at mikeowino.cloud",
+    ],
+    link: {
+      link: "https://mikeowino.cloud/",
     },
-    {
-      id: 12,
-      image: LinkShortener,
-      title: "Url Shortener",
-      link: {
-        
-        github: "https://github.com/OwinoMichael/url-shortener-petite-link",      
-      },
-      category: "Web",
+  },
+  {
+    id: 12,
+    image: LinkShortener,
+    title: "URL Shortener — Petite Link",
+    category: "Web",
+    tags: ["JavaScript", "Node.js", "Express", "MongoDB"],
+    desc: "A lightweight URL shortener that generates compact shareable links, tracks click analytics, and redirects users to the original destination.",
+    highlights: [
+      "Built with Node.js and Express for fast link generation and redirection",
+      "MongoDB for storing original URLs, short codes, and click metadata",
+      "Generated unique short codes with collision detection",
+      "Click tracking with basic analytics on usage per shortened link",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/url-shortener-petite-link",
     },
-  ];
+  },
+];
 
-  export const  projectNav = [
-    {
-        name : 'All',
-    },
-    {
-        name: 'AI'
-    },
-    {
-        name: 'Web',
-    },
-    {
-        name: 'Backend'
-    },
-    {
-        name: 'Mobile'
-    },
-  ];
-  
+export const projectNav = [
+  { name: "All" },
+  { name: "AI" },
+  { name: "Web" },
+  { name: "Backend" },
+  { name: "Mobile" },
+];

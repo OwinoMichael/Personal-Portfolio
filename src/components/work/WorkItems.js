@@ -1,41 +1,26 @@
 import React from 'react';
 
-const WorkItems = ({ item }) => {
+const WorkItems = ({ item, onClick }) => {
+  if (!item) return null;
+
   return (
-    <div className="work__card" key={item.id}>
-      <img src={item.image} alt="" className="work__img" />
-      <h3 className="work__title">{item.title}</h3>
-      
-      <div className="work__links">
-        <a href={item.link.github} className="work__button" target="_blank"
-          rel="noopener noreferrer">
-          Github <i className="bx bx-right-arrow-alt work__button-icon"></i>
-        </a>
-
-        {/* Change item.link.demo to item.link.link */}
-        {item.link.link && (
-          <a href={item.link.link} className="work__button" target="_blank"
-          rel="noopener noreferrer">
-            Demo <i className="bx bx-right-arrow-alt work__button-icon"></i>
-          </a>
-        )}
-
-        {item.link.kaggle && (
-          <a href={item.link.kaggle} className="work__button" target="_blank"
-          rel="noopener noreferrer">
-            Kaggle <i className="bx bx-right-arrow-alt work__button-icon"></i>
-          </a>
-        )}
-
-        {item.link.site && (
-          <a href={item.link.site} className="work__button" target="_blank"
-          rel="noopener noreferrer">
-            Site <i className="bx bx-right-arrow-alt work__button-icon"></i>
-          </a>
-        )}
+    <div className="work__card" onClick={() => onClick(item)}>
+      <div className="work__img-wrapper">
+        <img src={item.image} alt={item.title} className="work__img" />
+        <div className="work__hover-overlay">
+          <span className="work__hover-text">View Details →</span>
+        </div>
+      </div>
+      <div className="work__card-body">
+        <h3 className="work__title">{item.title}</h3>
+        <div className="work__tags">
+          {item.tags?.map((tag, i) => (
+            <span key={i} className="work__tag">{tag}</span>
+          ))}
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default WorkItems;
