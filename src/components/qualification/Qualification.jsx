@@ -1,13 +1,77 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "./qualification.css";
 
+const QualItem = ({ children, delay = 0 }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    // Reset then re-trigger for tab switches
+    el.classList.remove('sr-visible');
+    const timeout = setTimeout(() => {
+      el.classList.add('sr-visible');
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [delay]);
+
+  return (
+    <div ref={ref} className='qualification__data sr-hidden'>
+      {children}
+    </div>
+  );
+};
+
 const Qualification = () => {
+  const [toggleState, setToggleState] = useState(1);
+  const [key, setKey] = useState(0); // forces re-mount on tab switch
 
-    const [toggleState, setToggleState] = useState(1);
+  const toggleTab = (index) => {
+    setToggleState(index);
+    setKey(k => k + 1);
+  };
 
-    const toggleTab = (index) => {
-        setToggleState(index);
-    };
+  // Experience items
+  const expItems = [
+    { title: 'Software Engineer Intern', sub: 'Crossover Software Company - Toronto', year: '2023', right: false },
+    { title: 'Software Engineer - ERP Finance', sub: 'Abno Softwares', year: '2023 - 2024', right: true },
+    { title: 'Software Developer Intern', sub: 'Accorn Holdings Africa', year: '2023', right: false },
+    { title: 'Volunteer ICT Technician', sub: 'Nairobi City County', year: '2023', right: true },
+    { title: 'Intern ICT Personnel', sub: 'KENTTEC', year: '2022', right: false },
+  ];
+
+  // Education items
+  const eduItems = [
+    { title: 'Masters in Applied Computing', sub: 'Wilfrid Laurier University', year: '2024 - 2026', right: false },
+    { title: 'Computer Science', sub: 'Strathmore University', year: '2019 - 2023', right: true },
+  ];
+
+  const renderItem = (item, index) => {
+    const content = (
+      <div>
+        <h3 className='qualification__title'>{item.title}</h3>
+        <span className='qualification__subtitle'>{item.sub}</span>
+        <div className='qualification__calender'>
+          <i className='uil uil-calender-alt'></i> {item.year}
+        </div>
+      </div>
+    );
+
+    const dot = (
+      <div>
+        <span className='qualification__rounder'></span>
+        <span className='qualification__line'></span>
+      </div>
+    );
+
+    return (
+      <QualItem key={`${key}-${index}`} delay={index * 100}>
+        {item.right ? <div></div> : content}
+        {dot}
+        {item.right ? content : <></>}
+      </QualItem>
+    );
+  };
 
   return (
     <section className='qualification section'>
@@ -16,174 +80,29 @@ const Qualification = () => {
 
       <div className='qualification__container container'>
         <div className='qualification__tabs'>
-            <div 
-             className= {
-                toggleState === 1 
-                ? 'qualification__button qualification__active button--flex' 
-                : 'qualification__button  button--flex'}
-                onClick={ () => toggleTab(1)}
-                >
-
-                <i className='uil uil-briefcase-alt qualification__icon'></i> Experience
-            </div>
-
-            <div className= {
-                toggleState === 2 
-                ? 'qualification__button qualification__active button--flex' 
-                : 'qualification__button  button--flex'}
-                onClick={ () => toggleTab(2)}
-                >
-                <i className='uil uil-graduation-cap qualification__icon'></i> Education
-            </div>
+          <div
+            className={toggleState === 1 ? 'qualification__button qualification__active button--flex' : 'qualification__button button--flex'}
+            onClick={() => toggleTab(1)}>
+            <i className='uil uil-briefcase-alt qualification__icon'></i> Experience
+          </div>
+          <div
+            className={toggleState === 2 ? 'qualification__button qualification__active button--flex' : 'qualification__button button--flex'}
+            onClick={() => toggleTab(2)}>
+            <i className='uil uil-graduation-cap qualification__icon'></i> Education
+          </div>
         </div>
 
         <div className='qualification__sections'>
-            <div className={
-                toggleState === 1 
-                ? 'qualification__content qualification__content-active' 
-                : 'qualification__content'}>
-
-                <div className='qualification__data'>
-                    <div>
-                        <h3 className='qualification__title'>Software Engineer Intern</h3>
-                        <span className='qualification__subtitle'>Crossover Software Company - Toronto</span>
-                        <div className='qualification__calender'>
-                            <i className='uil uil-calender-alt'></i> 2023
-                        </div>
-                    </div>
-
-                    <div>
-                        <span className='qualification__rounder'></span>
-                        <span className='qualification__line'></span>
-                    </div>
-                </div>
-
-                <div className='qualification__data'>
-                    <div></div>
-
-                    <div>
-                        <span className='qualification__rounder'></span>
-                        <span className='qualification__line'></span>
-                    </div>
-
-                    <div>
-                        <h3 className='qualification__title'>Software Engineer -  ERP Finance</h3>
-                        <span className='qualification__subtitle'>Abno Softwares</span>
-                        <div className='qualification__calender'>
-                            <i className='uil uil-calender-alt'></i> 2023 - 2024
-                        </div>
-                    </div>
-
-                    
-                </div>
-                
-                <div className='qualification__data'>
-                    <div>
-                        <h3 className='qualification__title'>Software Developer Intern</h3>
-                        <span className='qualification__subtitle'>Accorn Holdings Africa</span>
-                        <div className='qualification__calender'>
-                            <i className='uil uil-calender-alt'></i> 2023
-                        </div>
-                    </div>
-
-                    <div>
-                        <span className='qualification__rounder'></span>
-                        <span className='qualification__line'></span>
-                    </div>
-                </div>
-
-                <div className='qualification__data'>
-                    <div></div>
-
-                    <div>
-                        <span className='qualification__rounder'></span>
-                        <span className='qualification__line'></span>
-                    </div>
-
-                    <div>
-                        <h3 className='qualification__title'>Volunteer ICT Technician</h3>
-                        <span className='qualification__subtitle'>Nairobi City County</span>
-                        <div className='qualification__calender'>
-                            <i className='uil uil-calender-alt'></i> 2023
-                        </div>
-                    </div>
-
-                    
-                </div>
-
-
-                <div className='qualification__data'>
-                    <div>
-                        <h3 className='qualification__title'>Intern ICT Personell</h3>
-                        <span className='qualification__subtitle'>KENTTEC</span>
-                        <div className='qualification__calender'>
-                            <i className='uil uil-calender-alt'></i> 2022
-                        </div>
-                    </div>
-
-                    <div>
-                        <span className='qualification__rounder'></span>
-                        <span className='qualification__line'></span>
-                    </div>
-                </div>
-
-               
-
-                
-
-            </div>
-
-            <div 
-             className={
-                toggleState === 2 
-                ? 'qualification__content qualification__content-active' 
-                : 'qualification__content'}>
-                <div className='qualification__data'>
-                    <div>
-                        <h3 className='qualification__title'>Masters in Applied Computing</h3>
-                        <span className='qualification__subtitle'>Wilfrid Laurier University</span>
-                        <div className='qualification__calender'>
-                            <i className='uil uil-calender-alt'></i> 2024 - 2026
-                        </div>
-                    </div>
-
-                    <div>
-                        <span className='qualification__rounder'></span>
-                        <span className='qualification__line'></span>
-                    </div>
-                </div>
-
-                <div className='qualification__data'>
-                    <div></div>
-
-                    <div>
-                        <span className='qualification__rounder'></span>
-                        <span className='qualification__line'></span>
-                    </div>
-
-                    <div>
-                        <h3 className='qualification__title'>Computer Scinece</h3>
-                        <span className='qualification__subtitle'>Strathmore University</span>
-                        <div className='qualification__calender'>
-                            <i className='uil uil-calender-alt'></i> 2019 - 2023
-                        </div>
-                    </div>
-
-                    
-                </div>
-
-
-                
-                
-
-            </div>
-
-            
-
+          <div className={toggleState === 1 ? 'qualification__content qualification__content-active' : 'qualification__content'}>
+            {expItems.map(renderItem)}
+          </div>
+          <div className={toggleState === 2 ? 'qualification__content qualification__content-active' : 'qualification__content'}>
+            {eduItems.map(renderItem)}
+          </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Qualification
