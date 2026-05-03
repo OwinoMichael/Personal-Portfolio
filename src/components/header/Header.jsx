@@ -1,75 +1,105 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import "./header.css";
 
+const sections = [
+  { id: 'home',     hash: '#home' },
+  { id: 'about',    hash: '#about' },
+  { id: 'skills',   hash: '#skills' },
+  { id: 'services', hash: '#services' },
+  { id: 'portfolio',hash: '#portfolio' },
+  { id: 'contact',  hash: '#contact' },
+];
+
 const Header = () => {
-    /*=============== Change background header ===============*/
-    window.addEventListener("scroll", function () {
-        const header = document.querySelector(".header");
-        // when the scroll is higher than 200 viewport height, ad  the scroll-header class to a tag with the headre tag
-        if (this.scrollY >= 80) header.classList.add("scroll-header");
-        else header.classList.remove("scroll-header")
+  const [Toggle, showMenu] = useState(false);
+  const [activeNav, setActiveNav] = useState('#home');
+
+  /*=============== Scroll header background ===============*/
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY >= 80) header.classList.add('scroll-header');
+      else header.classList.remove('scroll-header');
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  /*=============== Active section on scroll ===============*/
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const matched = sections.find(s => s.id === entry.target.id);
+            if (matched) setActiveNav(matched.hash);
+          }
+        });
+      },
+      {
+        threshold: 0.35, // section must be 35% visible to activate
+        rootMargin: '-60px 0px -35% 0px', // account for fixed header height
+      }
+    );
+
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
-    /*=============== Toggle Menu ===============*/
-    const[Toggle, showMenu] = useState(false);
-    const [activeNav, setActiveNav] = useState("#home");
+    return () => observer.disconnect();
+  }, []);
+
   return (
-        <header className='header'>
-            <nav className='nav container'>
-                <a href='index.html' className='nav__logo'>
-                    Mike Owino
+    <header className='header'>
+      <nav className='nav container'>
+        <a href='index.html' className='nav__logo'>
+          <span className='nav__logo-text'>Mike Owino</span>
+          <span className='nav__logo-shimmer'></span>
+        </a>
+
+        <div className={Toggle ? 'nav__menu show-menu' : 'nav__menu'}>
+          <ul className='nav__list grid'>
+            {sections.map(({ id, hash }) => (
+              <li className='nav__item' key={id}>
+                <a
+                  href={hash}
+                  onClick={() => { setActiveNav(hash); showMenu(false); }}
+                  className={activeNav === hash ? 'nav__link active-link' : 'nav__link'}
+                >
+                  <i className={`uil ${iconMap[id]} nav__icon`}></i>
+                  {labelMap[id]}
                 </a>
+              </li>
+            ))}
+          </ul>
+          <i className='uil uil-times nav__close' onClick={() => showMenu(!Toggle)}></i>
+        </div>
 
-                <div className= {Toggle ? "nav__menu show-menu" :
-                    "nav__menu"
-                }>
-                    <ul className='nav__list grid'>
-                        <li className='nav__item'>
-                            <a href='#home' onClick={() => setActiveNav("#home")} className={activeNav === "#home" ? 'nav__link active-link' : 'nav__link '}>
-                                <i className='uil uil-estate nav__icon'></i> Home
-                            </a>
-                        </li>
+        <div className='nav__toggle' onClick={() => showMenu(!Toggle)}>
+          <i className='uil uil-bars nav__bar'></i>
+        </div>
+      </nav>
+    </header>
+  );
+};
 
-                        <li className='nav__item'>
-                            <a href='#about'onClick={() => setActiveNav("#about")} className={activeNav === "#about" ? 'nav__link active-link' : 'nav__link '}>
-                                <i className='uil uil-user nav__icon'></i> About
-                            </a>
-                        </li>
+const iconMap = {
+  home:      'uil-estate',
+  about:     'uil-user',
+  skills:    'uil-file',
+  services:  'uil-briefcase',
+  portfolio: 'uil-scenery',
+  contact:   'uil-message',
+};
 
-                        <li className='nav__item'>
-                            <a href='#skills' onClick={() => setActiveNav("#skills")} className={activeNav === "#skills" ? 'nav__link active-link' : 'nav__link '}>
-                                <i className='uil uil-file nav__icon'></i> Skills
-                            </a>
-                        </li>
+const labelMap = {
+  home:      'Home',
+  about:     'About',
+  skills:    'Skills',
+  services:  'Services',
+  portfolio: 'Portfolio',
+  contact:   'Message',
+};
 
-                        <li className='nav__item'>
-                            <a href='#services' onClick={() => setActiveNav("#services")} className={activeNav === "#services" ? 'nav__link active-link' : 'nav__link '}>
-                                <i className='uil uil-briefcase nav__icon'></i> Services
-                            </a>
-                        </li>
-
-                        <li className='nav__item'>
-                            <a href='#portfolio' onClick={() => setActiveNav("#portfolio")} className={activeNav === "#portfolio" ? 'nav__link active-link' : 'nav__link '}>
-                                <i className='uil uil-scenery nav__icon'></i> Portfolio
-                            </a>
-                        </li>
-
-                        <li className='nav__item'>
-                            <a href='#contact' onClick={() => setActiveNav("#contact")} className={activeNav === "#contact" ? 'nav__link active-link' : 'nav__link '}>
-                                <i className='uil uil-message nav__icon'></i> Message
-                            </a>
-                        </li>
-                    </ul>
-
-                    <i className='uil uil-times nav__close' onClick={() => showMenu(!Toggle)}></i>
-                </div>
-
-                <div className='nav__toggle' onClick={() => showMenu(!Toggle)}>
-                    <i className='uil uil-bars nav__bar'></i>
-                </div>
-            </nav>
-        </header>
-  )
-}
-
-export default Header
+export default Header;
