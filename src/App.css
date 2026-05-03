@@ -217,3 +217,72 @@ img {
     margin-right: var(--mb-1);
   }
 }
+
+/*=============== SCROLL ANIMATIONS ===============*/
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delay for child elements inside sections */
+.fade-in-section:nth-child(1) { transition-delay: 0s; }
+.fade-in-section:nth-child(2) { transition-delay: 0.1s; }
+.fade-in-section:nth-child(3) { transition-delay: 0.15s; }
+.fade-in-section:nth-child(4) { transition-delay: 0.2s; }
+.fade-in-section:nth-child(5) { transition-delay: 0.25s; }
+.fade-in-section:nth-child(6) { transition-delay: 0.3s; }
+.fade-in-section:nth-child(7) { transition-delay: 0.35s; }
+
+/*=============== SCROLL REVEAL BASE ===============*/
+.sr-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sr-hidden.sr-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide from left */
+.sr-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sr-left.sr-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.sr-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sr-right.sr-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays */
+.sr-delay-1 { transition-delay: 0.1s; }
+.sr-delay-2 { transition-delay: 0.2s; }
+.sr-delay-3 { transition-delay: 0.3s; }
+.sr-delay-4 { transition-delay: 0.4s; }
+.sr-delay-5 { transition-delay: 0.5s; }
