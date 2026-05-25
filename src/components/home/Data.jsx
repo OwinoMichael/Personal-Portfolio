@@ -37,7 +37,7 @@ const Data = () => {
       </h3>
 
       <p className='home__description home__animate home__animate--3'>
-        I am a Software Engineer based in The Greater Toronto Area, ON, Canada. I love to develop and make new online experiences for the people.
+        I am a Software Engineer based in Canada, focused on building scalable, high-performance applications and delivering reliable solutions that create real business impact.
       </p>
 
       <a href='#contact' className='button button--flex home__animate home__animate--4'>
