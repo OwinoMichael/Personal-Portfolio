@@ -6,83 +6,89 @@ const servicesData = [
     id: 1,
     icon: 'uil-web-grid',
     title: 'Web Development',
-    shortTitle: 'Web\nDevelopment',
+    shortTitle: ['Web', 'Development'],
     description: 'Professional web solutions with 1+ years of expertise delivering impactful results for businesses worldwide.',
     items: [
-      'Full-Stack Development Building responsive websites and applications optimized for all devices',
-      'Front-End Excellence Creating intuitive interfaces with clean code for seamless user experiences',
-      'Brand Enhancement Strengthening your digital presence through strategic web solutions',
-      'UI/UX Design Transforming ideas into visually striking, user-friendly designs',
+      'Full-Stack Development: Building responsive websites and applications optimized for all devices',
+      'Front-End Excellence: Creating intuitive interfaces with clean code for seamless user experiences',
+      'Brand Enhancement: Strengthening your digital presence through strategic web solutions',
+      'UI/UX Design: Transforming ideas into visually striking, user-friendly designs',
     ],
   },
   {
     id: 2,
     icon: 'uil-android',
     title: 'Mobile Development',
-    shortTitle: 'Mobile\nDevelopment',
+    shortTitle: ['Mobile', 'Development'],
     description: 'Innovative mobile solutions with 2+ years of experience crafting high-performance applications.',
     items: [
-      'Native Development Building robust iOS and Android apps with platform-specific features',
-      'Cross-Platform Solutions Developing efficient apps that work seamlessly across multiple devices',
-      'App Optimization Enhancing performance and user experience through efficient coding',
-      'UI/UX Implementation Creating engaging mobile interfaces with intuitive navigation',
+      'Native Development: Building robust iOS and Android apps with platform-specific features',
+      'Cross-Platform Solutions: Developing efficient apps that work seamlessly across multiple devices',
+      'App Optimization: Enhancing performance and user experience through efficient coding',
+      'UI/UX Implementation: Creating engaging mobile interfaces with intuitive navigation',
     ],
   },
   {
     id: 3,
     icon: 'uil-robot',
     title: 'Artificial Intelligence Solutions',
-    shortTitle: 'AI\nSolutions',
-    description: 'Custom artificial intelligence solutions leveraging cutting-edge technology to transform your business.',
+    shortTitle: ['AI', 'Solutions'],
+    description: 'Custom AI solutions leveraging cutting-edge technology to transform your business.',
     items: [
-      'Smart Features Building AI capabilities for enhanced user experiences',
-      'Automation Solutions Developing AI-powered automation for improved efficiency',
-      'AI Integration Implementing machine learning models and AI tools into existing systems',
-      'Data Analytics Creating intelligent systems for data processing and insights',
+      'Smart Features: Building AI capabilities for enhanced user experiences',
+      'Automation Solutions: Developing AI-powered automation for improved efficiency',
+      'AI Integration: Implementing machine learning models and AI tools into existing systems',
+      'Data Analytics: Creating intelligent systems for data processing and insights',
     ],
   },
   {
     id: 4,
     icon: 'uil-circuit',
     title: 'Embedded & Low-Level Systems',
-    shortTitle: 'Embedded &\nSystems',
+    shortTitle: ['Embedded &', 'Systems'],
     description: 'Systems-level and embedded development focused on performance, reliability, and hardware-aware software design.',
     items: [
-      'Embedded Systems Development Building efficient firmware and device-level logic for resource-constrained environments',
-      'Network Programming Designing socket-based and event-driven systems for real-time communication',
-      'Low-Level Performance Optimization Writing efficient, concurrency-aware code with focus on CPU, memory, and latency',
-      'Protocols & Systems Design Working with TCP/IP fundamentals, polling, IPC, and scalable backend systems',
+      'Embedded Systems: Building efficient firmware for resource-constrained environments',
+      'Network Programming: Designing socket-based systems for real-time communication',
+      'Performance Optimization: Writing efficient, concurrency-aware code',
+      'Protocols & Systems: Working with TCP/IP fundamentals and scalable backend systems',
     ],
   },
 ];
 
-// Positions in the circle: top, right, bottom, left
-const POSITIONS = ['top', 'right', 'bottom', 'left'];
+// Each index maps to a position name anti-clockwise: top → left → bottom → right → top
+// offset controls which slot each card is in
+const SLOT_TRANSFORMS = {
+  0: 'translate(-50%, calc(-140px - 100%))', // was 180px
+  1: 'translate(calc(-140px - 100%), -50%)', // was 180px
+  2: 'translate(-50%, 140px)',               // was 180px
+  3: 'translate(140px, -50%)',               // was 180px
+};
 
 const Services = () => {
-  const [offset, setOffset] = useState(0);       // which card is at which position
-  const [rotating, setRotating] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [isRotating, setIsRotating] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-  const intervalRef = useRef(null);
+  const timerRef = useRef(null);
 
-  // Auto-rotate: wait 3s, rotate, wait 3s, rotate...
   useEffect(() => {
-    const schedule = () => {
-      intervalRef.current = setTimeout(() => {
-        setRotating(true);
+    const tick = () => {
+      timerRef.current = setTimeout(() => {
+        setIsRotating(true);
         setTimeout(() => {
           setOffset(prev => (prev + 1) % 4);
-          setRotating(false);
-          schedule();
-        }, 800); // rotation animation duration
-      }, 3000); // pause between rotations
+          setIsRotating(false);
+          tick(); // schedule next
+        }, 900);
+      }, 3000);
     };
-    schedule();
-    return () => clearTimeout(intervalRef.current);
+    tick();
+    return () => clearTimeout(timerRef.current);
   }, []);
 
-  const getPosition = (cardIndex) => {
-    return POSITIONS[(cardIndex - offset + 4) % 4];
+  const getTransform = (cardIndex) => {
+    const slot = (cardIndex + offset) % 4;
+    return SLOT_TRANSFORMS[slot];
   };
 
   return (
@@ -91,40 +97,33 @@ const Services = () => {
       <span className='section__subtitle'>What I offer</span>
 
       <div className='services__carousel-wrapper'>
-        <div className={`services__orbit ${rotating ? 'rotating' : ''}`}>
-          {servicesData.map((service, index) => {
-            const pos = getPosition(index);
-            return (
-              <div
-                key={service.id}
-                className={`services__card services__card--${pos}`}
-                onClick={() => setSelectedService(service)}
-              >
-                <i className={`uil ${service.icon} services__card-icon`}></i>
-                <h3 className='services__card-title'>
-                  {service.shortTitle.split('\n').map((line, i) => (
-                    <span key={i}>{line}<br/></span>
-                  ))}
-                </h3>
-                <span className='services__card-btn'>
-                  View More <i className='uil uil-arrow-right'></i>
-                </span>
-              </div>
-            );
-          })}
+        <div className={`services__orbit${isRotating ? ' rotating' : ''}`}>
 
-          {/* Centre dot */}
-          <div className='services__orbit-center'>
-            <span></span>
-          </div>
-
-          {/* Orbit ring lines */}
           <div className='services__orbit-line services__orbit-line--h'></div>
           <div className='services__orbit-line services__orbit-line--v'></div>
+          <div className='services__orbit-center'><span></span></div>
+
+          {servicesData.map((service, index) => (
+            <div
+              key={service.id}
+              className='services__card'
+              style={{ transform: getTransform(index) }}
+              onClick={() => setSelectedService(service)}
+            >
+              <i className={`uil ${service.icon} services__card-icon`}></i>
+              <h3 className='services__card-title'>
+                {service.shortTitle.map((line, i) => (
+                  <span key={i} style={{ display: 'block' }}>{line}</span>
+                ))}
+              </h3>
+              <span className='services__card-btn'>
+                View More <i className='uil uil-arrow-right'></i>
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Modal */}
       {selectedService && (
         <div className='services__modal active-modal' onClick={() => setSelectedService(null)}>
           <div className='services__modal-content' onClick={e => e.stopPropagation()}>
