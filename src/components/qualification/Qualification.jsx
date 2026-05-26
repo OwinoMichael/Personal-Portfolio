@@ -33,6 +33,8 @@ const Qualification = () => {
 
   // Experience items
   const expItems = [
+    { title: 'Founder - Software Engineer', sub: 'Pointify - Toronto', year: '2025 - Present', right: false },
+    { title: 'Part-Time - Tech Support & Automotvie', sub: 'Canadian Tire Corporation - Waterloo', year: '2025 - Present', right: true },
     { title: 'Software Engineer Intern', sub: 'Crossover Software Company - Toronto', year: '2023', right: false },
     { title: 'Software Engineer - ERP Finance', sub: 'Abno Softwares', year: '2023 - 2024', right: true },
     { title: 'Software Developer Intern', sub: 'Accorn Holdings Africa', year: '2023', right: false },

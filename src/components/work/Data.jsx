@@ -11,9 +11,9 @@ import DQL from "../../assets/DQL.jpg"
 import Nine from "../../assets/911.jpg"
 import Sonic from "../../assets/sonic.jpg"
 
+// No more manual id fields — array index is used as key in Works.js
 export const projectsData = [
   {
-    id: 1,
     image: Sonic,
     title: "Sonic Resonance",
     category: "AI",
@@ -31,7 +31,6 @@ export const projectsData = [
     },
   },
   {
-    id: 2,
     image: Legal,
     title: "Legal Mind — AI MCP System",
     category: "AI",
@@ -49,7 +48,6 @@ export const projectsData = [
     },
   },
   {
-    id: 3,
     image: DQL,
     title: "Deep Q-Learning Stock Trader",
     category: "AI",
@@ -67,7 +65,6 @@ export const projectsData = [
     },
   },
   {
-    id: 4,
     image: Nine,
     title: "911 Calls Visualization Platform",
     category: "AI",
@@ -85,7 +82,6 @@ export const projectsData = [
     },
   },
   {
-    id: 5,
     image: FinBert,
     title: "FinBERT & LSTM Stock Prediction",
     category: "AI",
@@ -103,7 +99,54 @@ export const projectsData = [
     },
   },
   {
-    id: 6,
+    image: Server,
+    title: "Multi-Client Chat Server",
+    category: "Systems",
+    tags: ["C", "POSIX Sockets", "Multithreading", "pthreads", "Linux"],
+    desc: "A multi-client TCP chat server written in C, supporting concurrent client connections with real-time message broadcasting using POSIX threads and sockets.",
+    highlights: [
+      "Built from scratch in C using POSIX socket API and pthreads for concurrent client handling",
+      "Each client connection handled on a dedicated thread with shared broadcast logic",
+      "Implemented graceful disconnect detection and client registry management",
+      "Tested under concurrent load on Linux to validate stability and throughput",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Multi-client-Chat-Server-in-C",
+    },
+  },
+  {
+    image: Server,
+    title: "TCP & UDP Client-Server",
+    category: "Systems",
+    tags: ["C", "TCP", "UDP", "POSIX Sockets", "Networking", "Linux"],
+    desc: "A low-level networking project in C implementing both TCP (reliable, connection-oriented) and UDP (fast, connectionless) client-server communication from scratch.",
+    highlights: [
+      "Implemented full TCP client-server with handshake, reliable data transfer, and teardown",
+      "Built parallel UDP client-server for low-latency datagram-based communication",
+      "Compared protocol behaviour under simulated packet loss and reordering",
+      "Pure C with POSIX socket API — no external libraries",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/TCP-and-UDP-Client-Server-in-C",
+    },
+  },
+  {
+    image: Server,
+    title: "Multi-Threaded HTTP Server",
+    category: "Systems",
+    tags: ["Java", "Multithreading", "HTTP", "Sockets", "Concurrency"],
+    desc: "A custom-built multi-threaded HTTP server in Java, handling concurrent client connections using thread pooling and raw socket programming.",
+    highlights: [
+      "Implemented HTTP/1.1 request parsing and response generation from scratch",
+      "Thread pool executor for managing concurrent client connections efficiently",
+      "Handled GET, POST, and static file serving with proper MIME types",
+      "Benchmarked against concurrent load to validate throughput and stability",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java",
+    },
+  },
+  {
     image: ReactJob,
     title: "HireHive — Jobs Site",
     category: "Web",
@@ -120,7 +163,6 @@ export const projectsData = [
     },
   },
   {
-    id: 7,
     image: Tow,
     title: "Truck on Wheels — Android App",
     category: "Mobile",
@@ -138,7 +180,6 @@ export const projectsData = [
     },
   },
   {
-    id: 8,
     image: Bank,
     title: "Financial Service API",
     category: "Backend",
@@ -155,7 +196,6 @@ export const projectsData = [
     },
   },
   {
-    id: 9,
     image: Work5,
     title: "Invoicing App",
     category: "Web",
@@ -172,24 +212,6 @@ export const projectsData = [
     },
   },
   {
-    id: 10,
-    image: Server,
-    title: "Multi-Threaded HTTP Server",
-    category: "Backend",
-    tags: ["Java", "Multithreading", "HTTP", "Sockets", "Concurrency"],
-    desc: "A custom-built multi-threaded HTTP server in Java, handling concurrent client connections using thread pooling and raw socket programming.",
-    highlights: [
-      "Implemented HTTP/1.1 request parsing and response generation from scratch",
-      "Thread pool executor for managing concurrent client connections efficiently",
-      "Handled GET, POST, and static file serving with proper MIME types",
-      "Benchmarked against concurrent load to validate throughput and stability",
-    ],
-    link: {
-      github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java",
-    },
-  },
-  {
-    id: 11,
     image: Portfolio,
     title: "Personal Portfolio",
     category: "Web",
@@ -206,7 +228,6 @@ export const projectsData = [
     },
   },
   {
-    id: 12,
     image: LinkShortener,
     title: "URL Shortener — Petite Link",
     category: "Web",
@@ -230,4 +251,5 @@ export const projectNav = [
   { name: "Web" },
   { name: "Backend" },
   { name: "Mobile" },
+  { name: "Systems" },
 ];

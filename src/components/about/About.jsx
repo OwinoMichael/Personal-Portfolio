@@ -27,9 +27,9 @@ const About = () => {
         <div ref={dataRef} className='about__data sr-right'>
           <Info />
           <p className='about__description'>
-            Software developer, I create tech solution mostly focusing on backend
-            development and I also develop mobile applications. <br /> <br />
-            My vision is to create good Software solutions that make the world a better place
+            I specialize in systems engineering, building scalable systems, APIs, and low level systems with a strong focus on performance, reliability, and user experience.
+            <br /><br />
+            My goal is to create impactful technology solutions that solve real-world problems and deliver meaningful value to people and businesses.
           </p>
           <a href="https://drive.google.com/file/d/1ZjSUamgQQDNxrMyLyi7D-Cx_7RWqzmU0/view?usp=drive_link"
             target='_blank' className='button button--flex' rel="noreferrer noopener">
