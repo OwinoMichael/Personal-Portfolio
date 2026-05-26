@@ -9,6 +9,7 @@ const Services = () => {
   const ref1 = useScrollReveal();
   const ref2 = useScrollReveal();
   const ref3 = useScrollReveal();
+  const ref4 = useScrollReveal();
 
   return (
     <section className='services section' id='services'>
@@ -71,7 +72,7 @@ const Services = () => {
 
         <div ref={ref3} className='services__content sr-hidden sr-delay-3'>
           <div>
-            <i className='uil uil-circuit services__icon'></i>
+            <i className='uil uil-robot services__icon'></i>
             <h3 className='services__title'>AI <br/> Solutions</h3>
             <span className='services__button' onClick={() => toggleTab(3)}>
               View More
@@ -89,6 +90,59 @@ const Services = () => {
                   <li className='services__modal-service'><i className='uil uil-check-circle services__modal-icon'></i><p className='services__modal-info'>Automation Solutions Developing AI-powered automation for improved efficiency</p></li>
                   <li className='services__modal-service'><i className='uil uil-check-circle services__modal-icon'></i><p className='services__modal-info'>AI Integration Implementing machine learning models and AI tools into existing systems</p></li>
                   <li className='services__modal-service'><i className='uil uil-check-circle services__modal-icon'></i><p className='services__modal-info'>Data Analytics Creating intelligent systems for data processing and insights</p></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div ref={ref4} className='services__content sr-hidden sr-delay-4'>
+          <div>
+            <i className='uil uil-circuit services__icon'></i>
+            <h3 className='services__title'>Embedded & <br/> Systems</h3>
+            <span className='services__button' onClick={() => toggleTab(4)}>
+              View More
+              <i className='uil uil-arrow-right services__button-icon'></i>
+            </span>
+
+            <div className={toggleState === 4 ? "services__modal active-modal" : "services__modal"}>
+              <div className='services__modal-content'>
+                <i onClick={() => toggleTab(0)} className='uil uil-times services__modal-close'></i>
+
+                <h3 className='services__modal-title'>Embedded & Low-Level Systems</h3>
+
+                <p className='services__modal-description'>
+                  Systems-level and embedded development focused on performance, reliability, and hardware-aware software design.
+                </p>
+
+                <ul className='services__modal-services grid'>
+                  <li className='services__modal-service'>
+                    <i className='uil uil-check-circle services__modal-icon'></i>
+                    <p className='services__modal-info'>
+                      Embedded Systems Development Building efficient firmware and device-level logic for resource-constrained environments
+                    </p>
+                  </li>
+
+                  <li className='services__modal-service'>
+                    <i className='uil uil-check-circle services__modal-icon'></i>
+                    <p className='services__modal-info'>
+                      Network Programming Designing socket-based and event-driven systems for real-time communication
+                    </p>
+                  </li>
+
+                  <li className='services__modal-service'>
+                    <i className='uil uil-check-circle services__modal-icon'></i>
+                    <p className='services__modal-info'>
+                      Low-Level Performance Optimization Writing efficient, concurrency-aware code with focus on CPU, memory, and latency
+                    </p>
+                  </li>
+
+                  <li className='services__modal-service'>
+                    <i className='uil uil-check-circle services__modal-icon'></i>
+                    <p className='services__modal-info'>
+                      Protocols & Systems Design Working with TCP/IP fundamentals, polling, IPC, and scalable backend systems
+                    </p>
+                  </li>
                 </ul>
               </div>
             </div>
