@@ -11,12 +11,49 @@ import DQL from "../../assets/DQL.jpg"
 import Nine from "../../assets/911.jpg"
 import Sonic from "../../assets/sonic.jpg"
 
-// No more manual id fields — array index is used as key in Works.js
 export const projectsData = [
+  {
+    image: Sonic,
+    title: "Synapse — AI Prediction Market Intelligence",
+    category: "AI",
+    featured: true,
+    tags: ["Spring Boot", "Kafka", "Spring AI", "Next.js", "GPT-4o", "RabbitMQ"],
+    desc: "A full-stack agentic platform that streams live Polymarket data, cross-references it against real-time news and social sentiment, and fires AI-driven alerts whenever crowd odds diverge from reality.",
+    highlights: [
+      "Streams live trades and order book changes from Polymarket via WebSocket",
+      "Buffers high-frequency price updates through RabbitMQ to handle volatility spikes without data loss",
+      "Triggers a Deep Research agent when a market moves >5% in a short window",
+      "Compares current odds against scraped news using GPT-4o / Claude to flag irrational pricing",
+      "Displays everything on a live Next.js dashboard with a real-time AI Insight ticker",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Synapse",
+      site: "https://mikeowino.cloud/synapse",
+    },
+  },
+  {
+    image: Sonic,
+    title: "Plasso CodeSync — Collaborative Code Editor",
+    category: "Web",
+    featured: true,
+    tags: ["React", "TypeScript", "Spring Boot", "Apache Kafka", "JWT", "OAuth"],
+    desc: "A full-stack real-time collaborative code editor supporting multi-user synchronization, passwordless authentication with magic link email verification, and Google SSO.",
+    highlights: [
+      "Engineered with React TypeScript frontend and Java Spring Boot backend using Apache Kafka for real-time sync",
+      "Implemented passwordless authentication with magic link email verification and JWT session management",
+      "Google SSO via OAuth reducing login friction by 60%",
+      "PostgreSQL schema with role-based access control for project workspaces and collaborative file management",
+    ],
+    link: {
+      github: "https://github.com/OwinoMichael/Plasso",
+      site: "https://mikeowino.cloud/plasso",
+    },
+  },
   {
     image: Sonic,
     title: "Sonic Resonance",
     category: "AI",
+    featured: true,
     tags: ["Spring Boot", "React TS", "FFmpeg", "PostgreSQL", "Redis"],
     desc: "A full Shazam-style audio fingerprinting system with real-time decoding, spectrogram generation, and hash-based fingerprint matching across thousands of tracks.",
     highlights: [
@@ -34,6 +71,7 @@ export const projectsData = [
     image: Legal,
     title: "Legal Mind — AI MCP System",
     category: "AI",
+    featured: true,
     tags: ["Java", "Spring Boot", "Python", "FastAPI", "React TS", "Legal-BERT"],
     desc: "An AI-powered MCP server that automatically scans and analyzes legal documents, achieving 93% accuracy in identifying clauses, risks, and compliance warnings.",
     highlights: [
@@ -51,7 +89,7 @@ export const projectsData = [
     image: DQL,
     title: "Deep Q-Learning Stock Trader",
     category: "AI",
-    tags: ["Python", "Deep Q-Learning", "PyTorch", "Reinforcement Learning", "Kaggle"],
+    tags: ["Python", "Deep Q-Learning", "PyTorch", "Reinforcement Learning"],
     desc: "An autonomous stock trading agent built using Deep Q-Learning, trained to maximize portfolio returns through reinforcement learning on historical market data.",
     highlights: [
       "Implemented a DQL agent with experience replay and target network stabilization",
@@ -69,7 +107,7 @@ export const projectsData = [
     title: "911 Calls Visualization Platform",
     category: "AI",
     tags: ["Python", "Java", "Spring Boot", "React", "Data Viz"],
-    desc: "An interactive platform for visualizing and analyzing 911 emergency call data, surfacing patterns in call volume, type, and geography through rich dashboards.",
+    desc: "An interactive platform for visualizing and analyzing 911 emergency call data, surfacing patterns in call volume, type, and geography.",
     highlights: [
       "Built full-stack platform with Spring Boot backend and React frontend",
       "Processed and cleaned large 911 call datasets for accurate trend analysis",
@@ -85,13 +123,12 @@ export const projectsData = [
     image: FinBert,
     title: "FinBERT & LSTM Stock Prediction",
     category: "AI",
-    tags: ["Python", "FinBERT", "LSTM", "NLP", "Kaggle", "PyTorch"],
+    tags: ["Python", "FinBERT", "LSTM", "NLP", "PyTorch"],
     desc: "A hybrid model combining FinBERT sentiment analysis on financial news with a multi-temporal attention LSTM for improved stock price prediction.",
     highlights: [
       "Fine-tuned FinBERT on financial news headlines for investor sentiment scoring",
       "Built a multi-temporal attention LSTM to capture short and long-term price trends",
       "Combined sentiment signals with price features to improve prediction accuracy",
-      "Full exploration and results published as a Kaggle notebook",
     ],
     link: {
       github: "https://github.com/OwinoMichael/FinBERT-Sentiment-Analysis-and-MTS-Temp-Att.-LSTM-",
@@ -108,27 +145,21 @@ export const projectsData = [
       "Built from scratch in C using POSIX socket API and pthreads for concurrent client handling",
       "Each client connection handled on a dedicated thread with shared broadcast logic",
       "Implemented graceful disconnect detection and client registry management",
-      "Tested under concurrent load on Linux to validate stability and throughput",
     ],
-    link: {
-      github: "https://github.com/OwinoMichael/Multi-client-Chat-Server-in-C",
-    },
+    link: { github: "https://github.com/OwinoMichael/Multi-client-Chat-Server-in-C" },
   },
   {
     image: Server,
     title: "TCP & UDP Client-Server",
     category: "Systems",
     tags: ["C", "TCP", "UDP", "POSIX Sockets", "Networking", "Linux"],
-    desc: "A low-level networking project in C implementing both TCP (reliable, connection-oriented) and UDP (fast, connectionless) client-server communication from scratch.",
+    desc: "A low-level networking project in C implementing both TCP and UDP client-server communication from scratch.",
     highlights: [
       "Implemented full TCP client-server with handshake, reliable data transfer, and teardown",
       "Built parallel UDP client-server for low-latency datagram-based communication",
-      "Compared protocol behaviour under simulated packet loss and reordering",
       "Pure C with POSIX socket API — no external libraries",
     ],
-    link: {
-      github: "https://github.com/OwinoMichael/TCP-and-UDP-Client-Server-in-C",
-    },
+    link: { github: "https://github.com/OwinoMichael/TCP-and-UDP-Client-Server-in-C" },
   },
   {
     image: Server,
@@ -140,11 +171,8 @@ export const projectsData = [
       "Implemented HTTP/1.1 request parsing and response generation from scratch",
       "Thread pool executor for managing concurrent client connections efficiently",
       "Handled GET, POST, and static file serving with proper MIME types",
-      "Benchmarked against concurrent load to validate throughput and stability",
     ],
-    link: {
-      github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java",
-    },
+    link: { github: "https://github.com/OwinoMichael/Multi-Threaded-HTTP-Server-in-Java" },
   },
   {
     image: ReactJob,
@@ -156,11 +184,8 @@ export const projectsData = [
       "Built with React 18 using hooks, context, and component-driven architecture",
       "Implemented job filtering by role type, location, and salary range",
       "Connected to a mock REST API for job CRUD operations",
-      "Responsive UI with clean card-based listing layout",
     ],
-    link: {
-      github: "https://github.com/OwinoMichael/HireHive-Job-Posting-App-react-18",
-    },
+    link: { github: "https://github.com/OwinoMichael/HireHive-Job-Posting-App-react-18" },
   },
   {
     image: Tow,
@@ -172,7 +197,6 @@ export const projectsData = [
       "Built natively in Java for Android with Google Maps API integration",
       "Real-time driver tracking and job dispatch flow for towing requests",
       "Firebase backend for authentication, job storage, and push notifications",
-      "Packaged and distributed as an installable APK via Google Drive",
     ],
     link: {
       github: "https://github.com/OwinoMichael/Truck-On-Wheels-Android-Java",
@@ -184,64 +208,52 @@ export const projectsData = [
     title: "Financial Service API",
     category: "Backend",
     tags: ["Java", "Spring Boot", "REST API", "MySQL", "JWT"],
-    desc: "A secure, scalable banking backend built with Spring Boot, supporting account management, transactions, and financial reporting via RESTful APIs.",
+    desc: "A secure, scalable banking backend built with Spring Boot, supporting account management, transactions, and financial reporting.",
     highlights: [
       "Designed RESTful endpoints for account creation, transfers, and balance queries",
       "Implemented JWT-based authentication and role-based access control",
       "Optimized MySQL queries for high-throughput transaction processing",
-      "Built robust error handling and logging for financial audit trails",
     ],
-    link: {
-      github: "https://github.com/OwinoMichael/Banking-System-Backend-SpringBoot",
-    },
+    link: { github: "https://github.com/OwinoMichael/Banking-System-Backend-SpringBoot" },
   },
   {
     image: Work5,
     title: "Invoicing App",
     category: "Web",
-    tags: ["Laravel", "Vue.js", "MySQL", "PHP", "REST API"],
+    tags: ["Laravel", "Vue.js", "MySQL", "PHP"],
     desc: "A full-stack invoicing application built with Laravel and Vue.js, enabling businesses to create, manage, and track invoices and client payments.",
     highlights: [
       "Built RESTful API with Laravel for invoice and client management",
       "Vue.js frontend with reactive invoice builder and PDF export",
-      "MySQL database with relational schema for clients, invoices, and line items",
       "Authentication with Laravel Sanctum and role-based permissions",
     ],
-    link: {
-      github: "https://github.com/OwinoMichael/Laravel-Vue-JS-Invoicing-App",
-    },
+    link: { github: "https://github.com/OwinoMichael/Laravel-Vue-JS-Invoicing-App" },
   },
   {
     image: Portfolio,
     title: "Personal Portfolio",
     category: "Web",
-    tags: ["React", "JavaScript", "CSS3", "Responsive Design"],
-    desc: "My personal developer portfolio showcasing projects, skills, and experience — built from scratch with React and deployed at mikeowino.cloud.",
+    tags: ["React", "JavaScript", "CSS3"],
+    desc: "My personal developer portfolio showcasing projects, skills, and experience — built from scratch with React.",
     highlights: [
-      "Designed and built fully responsive layout with smooth scroll and section animations",
+      "Fully responsive layout with smooth scroll and section animations",
       "Dynamic project filtering and category-based navigation",
       "Integrated contact form with EmailJS for direct message delivery",
-      "Deployed and hosted on custom domain at mikeowino.cloud",
     ],
-    link: {
-      link: "https://mikeowino.cloud/",
-    },
+    link: { link: "https://mikeowino.cloud/" },
   },
   {
     image: LinkShortener,
     title: "URL Shortener — Petite Link",
     category: "Web",
     tags: ["JavaScript", "Node.js", "Express", "MongoDB"],
-    desc: "A lightweight URL shortener that generates compact shareable links, tracks click analytics, and redirects users to the original destination.",
+    desc: "A lightweight URL shortener that generates compact shareable links and tracks click analytics.",
     highlights: [
       "Built with Node.js and Express for fast link generation and redirection",
       "MongoDB for storing original URLs, short codes, and click metadata",
-      "Generated unique short codes with collision detection",
       "Click tracking with basic analytics on usage per shortened link",
     ],
-    link: {
-      github: "https://github.com/OwinoMichael/url-shortener-petite-link",
-    },
+    link: { github: "https://github.com/OwinoMichael/url-shortener-petite-link" },
   },
 ];
 
