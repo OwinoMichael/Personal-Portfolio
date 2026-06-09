@@ -10,10 +10,12 @@ import Legal from "../../assets/Legal.jpg"
 import DQL from "../../assets/DQL.jpg"
 import Nine from "../../assets/911.jpg"
 import Sonic from "../../assets/sonic.jpg"
+import Code from "../../assets/code.jpg"
+import Trade from "../../assets/trade.jpg"
 
 export const projectsData = [
   {
-    image: Sonic,
+    image: Trade,
     title: "Synapse — AI Prediction Market Intelligence",
     category: "AI",
     featured: true,
@@ -32,7 +34,7 @@ export const projectsData = [
     },
   },
   {
-    image: Sonic,
+    image: Code,
     title: "Plasso CodeSync — Collaborative Code Editor",
     category: "Web",
     featured: true,
