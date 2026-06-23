@@ -3,123 +3,69 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0 5rem;
+  padding: 2rem 0 4rem;
 }
 
 .services__orbit {
   position: relative;
-  width: 520px;
-  height: 520px;
+  width: 560px;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Orbit ring lines */
-.services__orbit-line {
+/*=============== SVG STAR LINES ===============*/
+.services__star-svg {
   position: absolute;
-  background: rgba(0, 0, 0, 0.06);
-  pointer-events: none;
-}
-
-.services__orbit-line--h {
-  top: 50%;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 1px;
-  transform: translateY(-50%);
-}
-
-.services__orbit-line--v {
-  left: 50%;
-  top: 0;
-  width: 1px;
   height: 100%;
-  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: visible;
 }
 
-/* Centre dot */
-.services__orbit-center {
+/*=============== ROTATING RING ===============*/
+.services__star-ring {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.services__orbit-center span {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--title-color);
-  opacity: 0.2;
+  width: 0;
+  height: 0;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*=============== CARDS ===============*/
 .services__card {
   position: absolute;
-  width: 205px;
-
-  /* anchor all cards at center of orbit */
-  top: 50%;
-  left: 50%;
-
+  width: 150px;
   background: var(--container-color);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1.25rem;
-  padding: 1.5rem 1.25rem 1.25rem;
+  padding: 1.35rem 1.1rem 1.1rem;
   cursor: pointer;
   text-align: center;
-
-  /* smooth position transitions */
-  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s ease,
-              opacity 0.85s ease;
+              opacity 0.5s ease;
+  will-change: transform;
 }
 
 .services__card:hover {
   box-shadow: 0 8px 28px rgba(99, 102, 241, 0.14);
+  z-index: 2;
 }
 
-/*
-  All positions use transform to translate from center.
-  Card is 155px wide, 155px tall approx.
-  Half card = ~77px. Orbit radius = 180px.
-  So offset = -(180 + 77) = -257px to clear center gap.
-*/
-
-/* North */
-.services__card--top {
-  transform: translate(-50%, calc(-140px - 100%));
-  opacity: 1;
-}
-
-/* East */
-.services__card--right {
-  transform: translate(140px, -50%);
-  opacity: 1;
-}
-
-/* South */
-.services__card--bottom {
-  transform: translate(-50%, 140px);
-  opacity: 1;
-}
-
-/* West */
-.services__card--left {
-  transform: translate(calc(-140px - 100%), -50%);
-  opacity: 1;
-}
-
-/* Fade slightly during rotation */
-.services__orbit.rotating .services__card {
-  opacity: 0.5;
+.services__card--rotating {
+  opacity: 0.55;
 }
 
 .services__card-icon {
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   color: var(--title-color);
   display: block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .services__card-title {
@@ -127,7 +73,7 @@
   font-weight: var(--font-medium);
   color: var(--title-color);
   line-height: 1.4;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .services__card-btn {
@@ -193,7 +139,7 @@
 
 .services__modal-description {
   font-size: var(--small-font-size);
-  padding: 0 3.5rem;
+  padding: 0 2rem;
   margin-bottom: var(--mb-2);
 }
 
@@ -221,54 +167,14 @@
 /*=============== BREAKPOINTS ===============*/
 @media screen and (max-width: 992px) {
   .services__orbit {
-    width: 460px;
-    height: 460px;
+    width: 480px;
+    height: 480px;
   }
-  .services__card {
-    width: 140px;
-  }
-  .services__card--top    { transform: translate(-50%, calc(-120px - 100%)); }
-  .services__card--right  { transform: translate(120px, -50%); }
-  .services__card--bottom { transform: translate(-50%, 120px); }
-  .services__card--left   { transform: translate(calc(-120px - 100%), -50%); }
+  .services__card { width: 135px; }
 }
 
 @media screen and (max-width: 768px) {
-  .services__orbit {
-    width: 360px;
-    height: 360px;
-  }
-  .services__card {
-    width: 118px;
-    padding: 1.1rem 0.9rem 1rem;
-    border-radius: 1rem;
-  }
-  .services__card--top    { transform: translate(-50%, calc(-95px - 100%)); }
-  .services__card--right  { transform: translate(95px, -50%); }
-  .services__card--bottom { transform: translate(-50%, 95px); }
-  .services__card--left   { transform: translate(calc(-95px - 100%), -50%); }
-
-  .services__modal-content { padding: 4.5rem 1.5rem 2.5rem; }
-  .services__modal-description { padding: 0; }
-}
-
-@media screen and (max-width: 420px) {
-  .services__orbit {
-    width: 300px;
-    height: 300px;
-  }
-  .services__card {
-    width: 100px;
-    padding: 0.9rem 0.6rem 0.75rem;
-    border-radius: 0.75rem;
-  }
-  .services__card--top    { transform: translate(-50%, calc(-75px - 100%)); }
-  .services__card--right  { transform: translate(75px, -50%); }
-  .services__card--bottom { transform: translate(-50%, 75px); }
-  .services__card--left   { transform: translate(calc(-75px - 100%), -50%); }
-}
-
-@media screen and (max-width: 768px) {
+  /* Stack vertically on mobile — no rotation */
   .services__carousel-wrapper {
     display: block;
     padding: 1rem 0 2rem;
@@ -284,9 +190,18 @@
     position: static;
   }
 
-  .services__orbit-line,
-  .services__orbit-center {
-    display: none;
+  .services__star-svg { display: none; }
+
+  .services__star-ring {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transform: none !important;
+    transition: none;
   }
 
   .services__card {
@@ -298,7 +213,17 @@
     transition: box-shadow 0.3s ease;
   }
 
-  .services__orbit.rotating .services__card {
+  .services__card--rotating {
     opacity: 1 !important;
   }
+
+  .services__modal-content {
+    padding: 4.5rem 1.5rem 2.5rem;
+  }
+
+  .services__modal-description { padding: 0; }
+}
+
+@media screen and (max-width: 420px) {
+  .services__card { max-width: 280px; }
 }
