@@ -31,7 +31,7 @@ const servicesData = [
   {
     id: 3,
     icon: 'uil-robot',
-    title: 'Artificial Intelligence Solutions',
+    title: 'AI Solutions',
     shortTitle: ['AI', 'Solutions'],
     description: 'Custom AI solutions leveraging cutting-edge technology to transform your business.',
     items: [
@@ -44,7 +44,7 @@ const servicesData = [
   {
     id: 4,
     icon: 'uil-circuit',
-    title: 'Embedded & Low-Level Systems',
+    title: 'Embedded & Systems',
     shortTitle: ['Embedded &', 'Systems'],
     description: 'Systems-level and embedded development focused on performance, reliability, and hardware-aware software design.',
     items: [
@@ -54,42 +54,56 @@ const servicesData = [
       'Protocols & Systems: Working with TCP/IP fundamentals and scalable backend systems',
     ],
   },
+  {
+    id: 5,
+    icon: 'uil-link',
+    title: 'Blockchain',
+    shortTitle: ['Blockchain', 'Dev'],
+    description: 'Decentralized application development and smart contract engineering on modern blockchain platforms.',
+    items: [
+      'Smart Contracts: Writing and auditing Solidity contracts for EVM-compatible chains',
+      'DApp Development: Building decentralized applications with Web3.js and Ethers.js',
+      'Token Engineering: Designing and deploying ERC-20, ERC-721, and custom token standards',
+      'Web3 Integration: Connecting traditional backends to blockchain networks and wallets',
+    ],
+  },
 ];
 
-// Each index maps to a position name anti-clockwise: top → left → bottom → right → top
-// offset controls which slot each card is in
-const SLOT_TRANSFORMS = {
-  0: 'translate(-50%, calc(-140px - 100%))', // was 180px
-  1: 'translate(calc(-140px - 100%), -50%)', // was 180px
-  2: 'translate(-50%, 140px)',               // was 180px
-  3: 'translate(140px, -50%)',               // was 180px
-};
+// Pentagon points: angles in degrees starting from top, clockwise
+// 270, 342, 54, 126, 198 — standard pentagon
+const PENTAGON_ANGLES_DEG = [270, 342, 54, 126, 198];
+const RADIUS = 240; // px from center to card center
+
+function getStarPoint(angleDeg, radius) {
+  const rad = (angleDeg * Math.PI) / 180;
+  const x = radius * Math.cos(rad);
+  const y = radius * Math.sin(rad);
+  return { x, y };
+}
 
 const Services = () => {
-  const [offset, setOffset] = useState(0);
+  const [rotation, setRotation] = useState(0);
   const [isRotating, setIsRotating] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const timerRef = useRef(null);
+  const rotationRef = useRef(0);
 
   useEffect(() => {
     const tick = () => {
       timerRef.current = setTimeout(() => {
         setIsRotating(true);
+        const stepDeg = 360 / servicesData.length; // 72 degrees per step
+        rotationRef.current += stepDeg;
+        setRotation(rotationRef.current);
         setTimeout(() => {
-          setOffset(prev => (prev + 1) % 4);
           setIsRotating(false);
-          tick(); // schedule next
-        }, 900);
+          tick();
+        }, 1000);
       }, 3000);
     };
     tick();
     return () => clearTimeout(timerRef.current);
   }, []);
-
-  const getTransform = (cardIndex) => {
-    const slot = (cardIndex + offset) % 4;
-    return SLOT_TRANSFORMS[slot];
-  };
 
   return (
     <section className='services section' id='services'>
@@ -97,30 +111,60 @@ const Services = () => {
       <span className='section__subtitle'>What I offer</span>
 
       <div className='services__carousel-wrapper'>
-        <div className={`services__orbit${isRotating ? ' rotating' : ''}`}>
+        <div className='services__orbit'>
 
-          <div className='services__orbit-line services__orbit-line--h'></div>
-          <div className='services__orbit-line services__orbit-line--v'></div>
-          <div className='services__orbit-center'><span></span></div>
+          {/* Connecting lines from center to each point */}
+          <svg className='services__star-svg' viewBox='-300 -300 600 600'>
+            {PENTAGON_ANGLES_DEG.map((angle, i) => {
+              const { x, y } = getStarPoint(angle, RADIUS);
+              const nextAngle = PENTAGON_ANGLES_DEG[(i + 2) % 5]; // star skip
+              const { x: nx, y: ny } = getStarPoint(nextAngle, RADIUS);
+              return (
+                <line
+                  key={i}
+                  x1={x} y1={y}
+                  x2={nx} y2={ny}
+                  stroke='rgba(0,0,0,0.07)'
+                  strokeWidth='1'
+                />
+              );
+            })}
+            {/* Center dot */}
+            <circle cx='0' cy='0' r='6' fill='var(--title-color)' opacity='0.15' />
+          </svg>
 
-          {servicesData.map((service, index) => (
-            <div
-              key={service.id}
-              className='services__card'
-              style={{ transform: getTransform(index) }}
-              onClick={() => setSelectedService(service)}
-            >
-              <i className={`uil ${service.icon} services__card-icon`}></i>
-              <h3 className='services__card-title'>
-                {service.shortTitle.map((line, i) => (
-                  <span key={i} style={{ display: 'block' }}>{line}</span>
-                ))}
-              </h3>
-              <span className='services__card-btn'>
-                View More <i className='uil uil-arrow-right'></i>
-              </span>
-            </div>
-          ))}
+          {/* Cards */}
+          <div
+            className='services__star-ring'
+            style={{ transform: `rotate(${rotation}deg)` }}
+          >
+            {servicesData.map((service, index) => {
+              const angle = PENTAGON_ANGLES_DEG[index];
+              const { x, y } = getStarPoint(angle, RADIUS);
+              return (
+                <div
+                  key={service.id}
+                  className={`services__card ${isRotating ? 'services__card--rotating' : ''}`}
+                  style={{
+                    transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))
+                                rotate(${-rotation}deg)`, // counter-rotate card so text stays upright
+                  }}
+                  onClick={() => setSelectedService(service)}
+                >
+                  <i className={`uil ${service.icon} services__card-icon`}></i>
+                  <h3 className='services__card-title'>
+                    {service.shortTitle.map((line, i) => (
+                      <span key={i} style={{ display: 'block' }}>{line}</span>
+                    ))}
+                  </h3>
+                  <span className='services__card-btn'>
+                    View More <i className='uil uil-arrow-right'></i>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
 
