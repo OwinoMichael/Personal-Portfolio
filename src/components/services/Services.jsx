@@ -72,7 +72,7 @@ const servicesData = [
 // Pentagon points: angles in degrees starting from top, clockwise
 // 270, 342, 54, 126, 198 — standard pentagon
 const PENTAGON_ANGLES_DEG = [270, 342, 54, 126, 198];
-const RADIUS = 200; // px from center to card center
+const RADIUS = 240; // px from center to card center
 
 function getStarPoint(angleDeg, radius) {
   const rad = (angleDeg * Math.PI) / 180;
